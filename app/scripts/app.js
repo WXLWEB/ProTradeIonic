@@ -38,17 +38,27 @@ angular.module('ProTradeIonic', ['ionic', 'ngCordova', 'ngResource'])
         url: '/home',
         cache: true,
         views: {
-          'viewContent': {
+          'home-tab': {
             templateUrl: 'templates/views/home.html',
             controller: 'HomeController'
           }
         }
       })
-      .state('app.settings', {
-        url: '/settings',
+      .state('app.trade', {
+        url: '/trade',
         cache: true,
         views: {
-          'viewContent': {
+          'trade-tab': {
+            templateUrl: 'templates/views/settings.html',
+            controller: 'SettingsController'
+          }
+        }
+      })
+      .state('app.account', {
+        url: '/account',
+        cache: true,
+        views: {
+          'account-tab': {
             templateUrl: 'templates/views/settings.html',
             controller: 'SettingsController'
           }

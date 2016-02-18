@@ -10,5 +10,4 @@ angular.module('ProTradeIonic')
   .controller('MainController', function($scope) {
 
     // do something with $scope
-
   });
