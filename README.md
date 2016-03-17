@@ -27,21 +27,7 @@ it used like npm and it just add "c" in front of the "npm"
 $ cnpm install [name]
 ```
 
-##Set up
-
-**devlopment:** just run `gulp` command
-
-```shell
-$ gulp serve
-```
-
-**build for production:** just run `gulp build` command
-
-```shell
-$ gulp build
-```
-
-#### Build mode
+## Build mode
 
 By running just `gulp --build` or short `gulp -b`, we start gulp in build mode
 
