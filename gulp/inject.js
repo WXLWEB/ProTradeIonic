@@ -9,10 +9,13 @@ var $ = require('gulp-load-plugins')();
 var wiredep = require('wiredep').stream;
 var _ = require('lodash');
 
-gulp.task('inject', ['scripts', 'styles'], function () {
+gulp.task('inject', [], function () {
   var injectStyles = gulp.src([
     path.join(conf.paths.tmp, '/serve/**/*.css'),
-    path.join('!' + conf.paths.tmp, '/serve/vendor.css')
+    path.join('!' + conf.paths.tmp, '/serve/vendor.css'),
+    path.join('!' + conf.paths.tmp, '/serve/charting_library/static/chart.css'),
+    path.join('!' + conf.paths.tmp, '/serve/charting_library/static/theme/black.min.css'),
+    path.join('!' + conf.paths.tmp, '/serve/charting_library/static/theme/white.min.css')
   ], { read: false });
 
   var injectScripts = gulp.src([
