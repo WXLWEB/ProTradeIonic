@@ -28,7 +28,7 @@ angular.module('ProTradeIonic')
         height: '100%',
         fullscreen: false,
         symbol: "XBTCNY",
-        //interval: '60',
+        interval: '1D',
         timezone: "Asia/Shanghai",
         container_id: "chart",
         allow_symbol_change: true,
@@ -47,19 +47,19 @@ angular.module('ProTradeIonic')
         preset: "mobile",
         //toolbar_bg: '#141414',
         overrides: {
-            "mainSeriesProperties.style": 2,
-            "mainSeriesProperties.lineStyle.color": "#17A8F7",
-            "symbolWatermarkProperties.color" : "#FFF",
-            "mainSeriesProperties.showPriceLine": false,
+            // "mainSeriesProperties.style": 2,
+            // "mainSeriesProperties.lineStyle.color": "#17A8F7",
+            "symbolWatermarkProperties.color" : "#555",
+            // "mainSeriesProperties.showPriceLine": false,
             "scalesProperties.lineColor" : "#E1E1E1",
             "paneProperties.topMargin": 0,
             "paneProperties.bottomMargin": 0
         },
         studies_overrides: {
-            "volume.show ma": false
+            "volume.show ma": true
         },
         favorites:{
-            intervals: ["1", "15", "30", "60", "D"]
+            intervals: ["1", "15", "30", "60", "1D"]
         }
         //time_frames: timeFrames,
         //resolution: [1, 15, 240, "D", "6M"]
