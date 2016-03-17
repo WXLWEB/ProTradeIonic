@@ -1,6 +1,6 @@
 # ProTradeIonic
 ## About
-#This is a yeoman `ionic-gulp` project
+This is a yeoman `ionic-gulp` project
 ## Install
 it depends `bower` and `gulp`. So we should first install them in **global**.
 
