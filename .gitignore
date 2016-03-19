@@ -13,3 +13,4 @@ www/
 *.log
 .idea
 hooks
+dist
