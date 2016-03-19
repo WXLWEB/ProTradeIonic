@@ -54,16 +54,16 @@ angular.module('ProTradeIonic', ['ionic', 'ngCordova', 'ngResource'])
           }
         }
       })
-      .state('app.account', {
-        url: '/account',
-        cache: true,
-        views: {
-          'account-tab': {
-            templateUrl: 'templates/views/settings.html',
-            controller: 'SettingsController'
-          }
-        }
-      })
+      //.state('app.account', {
+      //  url: '/account',
+      //  cache: true,
+      //  views: {
+      //    'account-tab': {
+      //      templateUrl: 'templates/views/settings.html',
+      //      controller: 'SettingsController'
+      //    }
+      //  }
+      //})
       // Each tab has its own nav history stack:
 
       //.state('app.dash', {
