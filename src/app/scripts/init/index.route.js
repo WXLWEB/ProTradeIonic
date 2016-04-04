@@ -66,7 +66,7 @@
         cache: true,
         views: {
           'tab-chats': {
-            templateUrl: '../templates/views/tab-chats.html',
+            templateUrl: 'app/templates/views/tab-chats.html',
             controller: 'ChatsCtrl'
           }
         }
@@ -76,7 +76,7 @@
         cache: true,
         views: {
           'tab-chats': {
-            templateUrl: '../templates/views/chat-detail.html',
+            templateUrl: 'app/templates/views/chat-detail.html',
             controller: 'ChatDetailCtrl'
           }
         }
@@ -87,7 +87,7 @@
         cache: true,
         views: {
           'tab-account': {
-            templateUrl: '../templates/views/tab-account.html',
+            templateUrl: 'app/templates/views/tab-account.html',
             controller: 'AccountCtrl'
           }
         }

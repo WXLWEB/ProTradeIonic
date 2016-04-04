@@ -12,10 +12,7 @@ var _ = require('lodash');
 gulp.task('inject', ['scripts', 'styles'], function () {
   var injectStyles = gulp.src([
     path.join(conf.paths.tmp, '/serve/app/**/*.css'),
-    path.join('!' + conf.paths.tmp, '/serve/app/vendor.css'),
-    path.join('!' + conf.paths.tmp, '/serve/charting_library/static/chart.css'),
-    path.join('!' + conf.paths.tmp, '/serve/charting_library/static/theme/black.min.css'),
-    path.join('!' + conf.paths.tmp, '/serve/charting_library/static/theme/white.min.css')
+    path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
   ], { read: false });
 
   var injectScripts = gulp.src([
