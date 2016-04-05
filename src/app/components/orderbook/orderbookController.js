@@ -1,3 +1,5 @@
-/**
- * Created by luluwu on 2/19/16.
- */
+'use strict'
+angular.module('ProTradeIonic')
+  .controller('orderBookController',function($scope, OrderBookResponse){
+      $scope.OrderBookResponse = OrderBookResponse;
+  });

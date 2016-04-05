@@ -8,7 +8,7 @@
  */
 angular.module('ProTradeIonic')
   // use factory for services
-  .factory('SocketService', function($websocket, $log, $rootScope, $interval, getSignature) {
+  .factory('SocketService', function($websocket, $log, $rootScope, $interval, getSignature, OrderBookResponse) {
       var ws = false;
       var reconnection;
       $rootScope.groupOrderbookArgs = 0;
@@ -88,10 +88,10 @@ angular.module('ProTradeIonic')
             // case 'OrderCancelReject':
             //   execReport.processIncoming(data);
             //   break;
-            // case 'OrderBookResponse':
-            //   $log.debug("OrderBookResponse:",data);
-            //   orderBookResponse.processIncoming(data,$rootScope.groupOrderbookArgs,$rootScope.groupMarketDepthArgs);
-            //   break;
+            case 'OrderBookResponse':
+              $log.debug("OrderBookResponse:",data);
+              OrderBookResponse.processIncoming(data,$rootScope.groupOrderbookArgs,$rootScope.groupMarketDepthArgs);
+              break;
             default:
               $log.debug('have something no handle:' + JSON.stringify(data));
           }
