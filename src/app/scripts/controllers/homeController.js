@@ -7,7 +7,7 @@
  * # HomeController
  */
 angular.module('ProTradeIonic')
-  .controller('HomeController', function($scope, ExampleService) {
+  .controller('HomeController', function($scope, SocketService) {
 
     $scope.myHTML = null;
 

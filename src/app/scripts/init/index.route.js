@@ -26,6 +26,14 @@
             templateUrl: 'app/templates/views/home.html',
             controller: 'HomeController'
           }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
         }
       })
       .state('app.trade', {
