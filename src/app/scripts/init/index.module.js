@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('ProTradeIonic', ['ionic', 'ngCordova', 'ngResource']);
+    .module('ProTradeIonic', ['ionic', 'ngCordova', 'ngResource', 'ngWebSocket']);
 
 })();

@@ -26,6 +26,14 @@
             templateUrl: 'app/templates/views/home.html',
             controller: 'HomeController'
           }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
         }
       })
       .state('app.trade', {
@@ -66,7 +74,7 @@
         cache: true,
         views: {
           'tab-chats': {
-            templateUrl: '../templates/views/tab-chats.html',
+            templateUrl: 'app/templates/views/tab-chats.html',
             controller: 'ChatsCtrl'
           }
         }
@@ -76,7 +84,7 @@
         cache: true,
         views: {
           'tab-chats': {
-            templateUrl: '../templates/views/chat-detail.html',
+            templateUrl: 'app/templates/views/chat-detail.html',
             controller: 'ChatDetailCtrl'
           }
         }
@@ -87,7 +95,7 @@
         cache: true,
         views: {
           'tab-account': {
-            templateUrl: '../templates/views/tab-account.html',
+            templateUrl: 'app/templates/views/tab-account.html',
             controller: 'AccountCtrl'
           }
         }
