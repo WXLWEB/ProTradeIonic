@@ -47,6 +47,7 @@ By running just `gulp --build` or short `gulp -b`, we start gulp in build mode
 ####install Android SDK
 
 Install the SDK - This can be done a few different ways. 
+
 1.The one is by installing [Android Studio](https://developer.android.com/sdk/installing/index.html?pkg=studio). This will let you install an editor that comes bundled with the Android SDK. So now our SDK is in our Applications Folder.
 
 
