@@ -8,6 +8,11 @@ it depends `bower` and `gulp`. So we should first install them in **global**.
 $ sudo npm i -d -g bower
 $ sudo npm i -d -g gulp
 ```
+install ionic
+
+```shell
+$ sudo npm install -g cordova ionic
+```
 
 And then in `ProTradeIonic` directory, install package from `package.json` and `bower.json`,so just run below command:
 
@@ -36,25 +41,31 @@ By running just `gulp --build` or short `gulp -b`, we start gulp in build mode
 - build everything into `www`
 - remove debugs messages such as `console.log` or `alert` with passing `--release`
 
+##Environment install
 
-## Emulate
+### Android Environment install
+install Android SDK
 
-By running `gulp -e <platform>`, we can run our app in the simulator
+Install the SDK - This can be done a few different ways. The one I like to use is by installing Android Studio. This will let you install an editor that comes bundled with the Android SDK. So now our SDK is in our Applications Folder.
 
-- <platform> can be either `ios` or `android`, defaults to `ios`
-- make sure to have iOS Simulator installed in XCode, as well as `ios-sim` package globally installed (`npm install -g ios-sim`)
-- for Android, [Ripple](http://ripple.incubator.apache.org/) or [Genymotion](https://www.genymotion.com/) seem to be the emulators of choice
-- It will run the `gulp --build` before, so we have a fresh version to test
-- In iOS, it will livereload any code changes in iOS simulator
+Edit .bash_profile - So if you’ve followed the steps above, you’ll need to edit your .bash_profile to include the following. If you didn’t install Android Studio, then no problem. You’ll just need to change the path to the SDK. You want to include the SDK tools and SDK Platform-tools.
 
-#### Emulate a specific iOS device
+```shell
+ vim ~/.bash_profile 
+ ```
+ Add this:
+ ```shell
+ export PATH=${PATH}:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=${JAVA_HOME}/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+ ```
+ 
+##Run it 
 
-By running `gulp select` you will see a prompt where you can choose which ios device to emulate. This works only when you have the `gulp -e` task running in one terminal window and run `gulp select` in another terminal window.
-
-
-## Run
-
-By running `gulp -r <platform>`, we can run our app on a connected device
-
-- <platform> can be either `ios` or `android`, defaults to `ios`
-- It will run the `gulp --build` before, so we have a fresh version to test
+run ios or android
+```shell
+$ ionic platform add ios/android
+$ ionic build ios/android
+$ ionic emulate ios/android
+```
