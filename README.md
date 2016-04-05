@@ -44,22 +44,36 @@ By running just `gulp --build` or short `gulp -b`, we start gulp in build mode
 ##Environment install
 
 ### Android Environment install
-install Android SDK
+####install Android SDK
 
-Install the SDK - This can be done a few different ways. The one is by installing [Android Studio](https://developer.android.com/sdk/index.html). This will let you install an editor that comes bundled with the Android SDK. So now our SDK is in our Applications Folder.
+Install the SDK - This can be done a few different ways. 
+1.The one is by installing [Android Studio](https://developer.android.com/sdk/installing/index.html?pkg=studio). This will let you install an editor that comes bundled with the Android SDK. So now our SDK is in our Applications Folder.
+
+
+2.Another is by install [STAND-ALONE SDK TOOLS](https://developer.android.com/sdk/installing/index.html?pkg=tools). Then move this download to one specifiled path and check to this path
+
+    ```shell
+     tools/android
+     ```
+    and then install relatve build tools and api.
 
 Edit .bash_profile - So if you’ve followed the steps above, you’ll need to edit your .bash_profile to include the following. If you didn’t install Android Studio, then no problem. You’ll just need to change the path to the SDK. You want to include the SDK tools and SDK Platform-tools.
 
 ```shell
  vim ~/.bash_profile 
  ```
- Add this:
+ Installed Android Studio add this:
  ```shell
 export PATH=${PATH}:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=${JAVA_HOME}/bin:$PATH
 export PATH=/usr/local/bin:$PATH
  ```
+ Installed STAND-ALONE SDK TOOLS add this:
+  ```shell
+ export ANDROID_HOME=/Users/<your_computer_name>/<your_android_sdk_path>/android-sdk-macosx
+  ```
+ 
  
 ##Run it 
 
