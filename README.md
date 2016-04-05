@@ -46,7 +46,7 @@ By running just `gulp --build` or short `gulp -b`, we start gulp in build mode
 ### Android Environment install
 install Android SDK
 
-Install the SDK - This can be done a few different ways. The one I like to use is by installing Android Studio. This will let you install an editor that comes bundled with the Android SDK. So now our SDK is in our Applications Folder.
+Install the SDK - This can be done a few different ways. The one is by installing [Android Studio](https://developer.android.com/sdk/index.html). This will let you install an editor that comes bundled with the Android SDK. So now our SDK is in our Applications Folder.
 
 Edit .bash_profile - So if you’ve followed the steps above, you’ll need to edit your .bash_profile to include the following. If you didn’t install Android Studio, then no problem. You’ll just need to change the path to the SDK. You want to include the SDK tools and SDK Platform-tools.
 
