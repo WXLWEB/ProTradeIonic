@@ -92,8 +92,8 @@ angular.module('ProTradeIonic')
                 totalBidSize += n.Quantity;
                 that.orderbook.bid.push({Price: n.Price, Quantity :n.Quantity, Total : totalBidSize});
             });
-            $log.debug("Bid",that.orderbook.bid);
-            $log.debug("Ask",that.orderbook.ask);
+            $log.debug("bidData",that.orderbook.bid);
+            $log.debug("askData",that.orderbook.ask);
 
             if(mergeOrderbookArgs !== 0){
                 $rootScope.$broadcast('groupOrderBook',mergeOrderbookArgs);

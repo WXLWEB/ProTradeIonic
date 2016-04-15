@@ -3,3 +3,99 @@
  */
 
 $textColor: #ccc;
+//theme
+$white:#fff;
+$box-header-bgcolor: #202020;
+$box-header-stress-bgcolor: #383838;
+
+$dropdownmenu-bgcolor: #2F2F2F;
+$dropdownmenu-hover-bgcolor: #383838;
+
+//backgrount color
+$bgcolor-gray:         #F8F8F8;
+
+//buttoncolor
+$buttonColorGreen:     #16871E;
+$buttonColorRed:       #BD2B35;
+$buttonColorGray:      #F2F2F2;
+$buttonColorBlack:     #2D2C2C;
+$buttonTextColorGray:  #ABABAB;
+$buttonBlue:           #4A90E2;
+
+//font color;
+$font-red:               #BD2B35;
+$font-green:             #16871E;
+$font-bright-green:      #52C648;
+$font-blue:              #17A8F7;
+$font-bright-green-color: #52C648;
+$font-stress-color:     #2D2D2D;
+$font-black-color:      #1D1D1D;
+$font-color:            #ABABAB;
+$key-font-color:        #5C5C5C;
+$value-font-color:      #909090;
+$popup-font-header-color:#333;
+$popup-font-body-color:  #333;
+$key-font-yellow-color:  #776700;
+$value-font-yellow-color: #B89F00;
+
+//icon gray color:
+$icon-gray:             #D8D8D8;
+
+
+//scrollbarcolor
+$scrollbarColor:        #686868;
+//borderColor
+$border-color:         #E1E1E1;
+$border-color2:         #555;
+
+$font-white:          #E3E3E3;
+$font-gray:           #686868;
+//navbar
+$navbar-default-bg:    #141414;
+//table
+$table-bg-lightblack:  #2c2c2c;
+$table-bg-black:       #242424;
+$table-bg-deepblack:   #1C1C1C;
+
+$input-bg:             #2c2c2c;
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+$font-size-base:                 bold !default;
+
+
+$btn-green-color:                  $font-green;
+$btn-green-bg:                     $white;
+$btn-green-border:                 $font-green;
+$btn-green-hover-color:            $white;
+$btn-green-hover-bg:               $font-green;
+$btn-green-hover-border:           $font-green;
+
+$btn-red-color:                    $font-red;
+$btn-red-bg:                       $white;
+$btn-red-border:                   $font-red;
+$btn-red-hover-bg:                 $font-red;
+$btn-red-hover-color:              $white;
+$btn-red-hover-border:             $font-red;
+
+$line-height-base:           1;
+$border-radius-base:         2;
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+
+$padding-large-vertical:    10px !default;
+$padding-large-horizontal:  16px !default;
+
+$padding-small-vertical:    5px !default;
+$padding-small-horizontal:  10px !default;
+
+$padding-xs-vertical:       1px !default;
+$padding-xs-horizontal:     5px !default;
+
+
+//model
+$mode-head-bg:             #F3F3F3;
+$mode-body-bg:             #fff;

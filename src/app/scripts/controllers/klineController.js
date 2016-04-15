@@ -24,8 +24,8 @@ angular.module('ProTradeIonic')
 
     //$scope.fetchRandomText();
     var widget = new TradingView.widget({
-      width: '100%',
-        height: '100%',
+        width: '100%',
+        height: '50%',
         fullscreen: false,
         symbol: "XBTCNY",
         interval: '1D',
