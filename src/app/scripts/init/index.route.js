@@ -41,9 +41,17 @@
         cache: true,
         views: {
           'trade-tab': {
-            templateUrl: 'app/templates/views/settings.html',
+            templateUrl: 'app/templates/views/trade.html',
             controller: 'SettingsController'
           }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
         }
       })
       //.state('app.account', {

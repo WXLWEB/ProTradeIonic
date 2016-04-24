@@ -13,7 +13,6 @@
     $rootScope.$on("$stateChangeSuccess", function(event, toState) {
       $rootScope.urlParameter = toState.data;
       $log.debug('urlParameter',$rootScope.urlParameter);
-
     });
     // add possible global event handlers here
 
