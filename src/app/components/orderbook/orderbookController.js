@@ -1,12 +1,13 @@
 'use strict'
 angular.module('ProTradeIonic')
-  .controller('orderBookController',function($scope, OrderBookResponse, $log, ticker){
+  .controller('orderBookController',function($scope, OrderBookResponse, $log, Ticker, ExecTrade){
     $scope.OrderBookResponse = OrderBookResponse;
-    $scope.ticker = ticker;
+    $scope.Ticker = Ticker;
+    $scope.ExecTrade = ExecTrade;
 
     var calculateOrderBookCount = function () {
-      $log.debug('OrderBook height:',Math.floor(($('.orderbook_box').height()-40)/28));
-      return Math.floor(($('.orderbook_box').height()-80)/28);
+      $log.debug('OrderBook height:',Math.floor(($('.orderbook_box').height()-94)/28));
+      return Math.floor(($('.orderbook_box').height()-94)/28);
     };
 
     var calculateNullData = function(){

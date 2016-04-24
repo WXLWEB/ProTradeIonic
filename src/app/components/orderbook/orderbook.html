@@ -11,7 +11,7 @@
             <div class="col" ng-bind="item.Quantity">-</div>
             <div class="col" ng-bind="item.Total">-</div>
         </div>
-        <div class="row" style="cursor: pointer"  ng-repeat="i in OrderBookResponse.orderbook.ask | orderBy: 'Price' |  limitTo: orderBookCount | orderBy: '-Price'" ng-class="{'overlimit':i.Price > ticker.quote[urlParameter.symbol].LimitUp}" ng-init="quantityHover = false" ng-mouseover="quantityHover = true" ng-mouseout="quantityHover = false">
+        <div class="row" style="cursor: pointer"  ng-repeat="i in OrderBookResponse.orderbook.ask | orderBy: 'Price' |  limitTo: orderBookCount | orderBy: '-Price'" ng-class="{'overlimit':i.Price > Ticker.quote[urlParameter.symbol].LimitUp}" ng-init="quantityHover = false" ng-mouseover="quantityHover = true" ng-mouseout="quantityHover = false">
             <div class="col col-50" ng-class="{'hover-disc':quantityHover}"  ng-click="getPrice(i.Price);resetPrice()" ng-bind="i.Price| number:2"></div>
             <div class="col" ng-click="getPrice(i.Price);getQuantity(i.Quantity);resetPrice()" ng-mouseover="quantityHover = true" ng-bind="i.Quantity"></div>
             <div class="col" ng-click="getPrice(i.Price);getQuantity(i.Total);resetPrice()" ng-mouseover="quantityHover = true" ng-bind="i.Total"></div>
@@ -20,20 +20,20 @@
       <div class="tradeState">
           <div class="row">
               <div class="col">
-                  <span ng-class="{'icon-Futuresicon_up':trades.trades[urlParameter.symbol][0].Side == 1, 'icon-Futuresicon_down': trades.trades[urlParameter.symbol][0].Side == 2}"></span>
-                  <span ng-class="{'newdealprice-up': trades.trades[urlParameter.symbol][0].Side == 1, 'newdealprice-down': trades.trades[urlParameter.symbol][0].Side == 2}">
-                      <span ng-bind="trades.trades[urlParameter.symbol][0].Price | number:2"></span>
+                  <span ng-class="{'ion-arrow-up-a':ExecTrade.trades[urlParameter.symbol][0].Side == 1, 'ion-arrow-down-a': ExecTrade.trades[urlParameter.symbol][0].Side == 2}"></span>
+                  <span ng-class="{'newdealprice-up': ExecTrade.trades[urlParameter.symbol][0].Side == 1, 'newdealprice-down': ExecTrade.trades[urlParameter.symbol][0].Side == 2}">
+                      <span ng-bind="ExecTrade.trades[urlParameter.symbol][0].Price | number:2"></span>
                   </span>
               </div>
               <div class="col">
-                  <span ng-class="{'points-up': ticker.quote[urlParameter.symbol].change >= 0, 'points-down': ticker.quote[urlParameter.symbol].change < 0}">
-                      {{ticker.quote[urlParameter.symbol].change | number:2 }} ({{ticker.quote[urlParameter.symbol].percent | number:2 }}%)
+                  <span ng-class="{'points-up': Ticker.quote[urlParameter.symbol].change >= 0, 'points-down': Ticker.quote[urlParameter.symbol].change < 0}">
+                      {{Ticker.quote[urlParameter.symbol].change | number:2 }} ({{Ticker.quote[urlParameter.symbol].percent | number:2 }}%)
                   </span>
               </div>
           </div>
       </div>
       <div class="buy">
-          <div class="row" style="cursor: pointer"  ng-repeat="i in OrderBookResponse.orderbook.bid| limitTo: orderBookCount | orderBy: 'Price': true" ng-class="{'overlimit':i.Price < ticker.quote[urlParameter.symbol].LimitDown}" ng-init="quantityHover = false" ng-mouseover="quantityHover = true" ng-mouseout="quantityHover = false">
+          <div class="row" style="cursor: pointer"  ng-repeat="i in OrderBookResponse.orderbook.bid| limitTo: orderBookCount | orderBy: 'Price': true" ng-class="{'overlimit':i.Price < Ticker.quote[urlParameter.symbol].LimitDown}" ng-init="quantityHover = false" ng-mouseover="quantityHover = true" ng-mouseout="quantityHover = false">
               <div class="col col-50" ng-class="{'hover-disc':quantityHover}" ng-click="getPrice(i.Price);resetPrice()" ng-bind="i.Price| number:2"></div>
               <div class="col" ng-click="getPrice(i.Price);getQuantity(i.Quantity);resetPrice()" ng-bind="i.Quantity"></div>
               <div class="col" ng-click="getPrice(i.Price);getQuantity(i.Total);resetPrice()" ng-bind="i.Total"></div>

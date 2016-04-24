@@ -8,12 +8,12 @@
  */
 angular.module('ProTradeIonic')
   // use factory for services
-  .factory('ticker',function ($log, $rootScope) {
+  .factory('Ticker',function ($log, $rootScope) {
     var ticker = {
       quote: {},
       contractTickerLastPrice: {},
       preLastPrice: {value: 0, sub: 0},
-      //activeContracts: [$rootScope.urlParameter.symbol],
+      activeContracts: [$rootScope.urlParameter.symbol],
       totalOpenInterest: 0,
       totalVolume: 0,
       processIncoming: function (data) {
