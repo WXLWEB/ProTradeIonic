@@ -8,6 +8,10 @@
  */
 angular.module('ProTradeIonic')
   .factory('OrderBookResponse',function($rootScope, $filter, $log) {
+    var calculateOrderBookCount = function () {
+      $log.debug('OrderBook height:',Math.floor(($('.orderbook_box').height()-40)/28));
+      return Math.floor(($('.orderbook_box').height()-80)/28);
+    };
     return {
         orderbook:  {ask: [], bid: []}, askData: {}, bidData: {}, version: 0,
         processIncoming: function (data,mergeOrderbookArgs,mergeMaketDepthArgs) {
@@ -16,6 +20,8 @@ angular.module('ProTradeIonic')
                 //do something when te websocket connection is opened
                 that.version = 0;
             });
+            if(data == null)
+            return;
             $log.debug("Orderbooks:", data);
             if(data.Type === "F"){
                 that.version = data.Version;
@@ -31,6 +37,7 @@ angular.module('ProTradeIonic')
                 });
             }else if(data.Type === "I"){
                 // if version = 32767
+                return;
                 if (data.Version >= 32767)
                     that.version = 0;
                 else
@@ -83,12 +90,13 @@ angular.module('ProTradeIonic')
             that.orderbook.ask = [];
             that.orderbook.bid = [];
             //sort by desc in askArray
-            _.forEach(_.sortByOrder($filter('toArray')(that.askData),'Price',true), function (n,key){
+            _.forEach(_.slice(_.sortBy(_.toArray(that.askData),'Price',true),0,calculateOrderBookCount()), function (n,key){
                 totalAskSize += n.Quantity;
                 that.orderbook.ask.push({Price: n.Price, Quantity :n.Quantity, Total : totalAskSize});
             });
-            //sort by asc in askArray
-            _.forEach(_.sortByOrder($filter('toArray')(that.bidData),'Price',false), function (n,key){
+
+            //sort by asc in bidArray
+            _.forEach(_.slice(_.sortBy(_.toArray(that.bidData),'Price',false),0,calculateOrderBookCount()), function (n,key){
                 totalBidSize += n.Quantity;
                 that.orderbook.bid.push({Price: n.Price, Quantity :n.Quantity, Total : totalBidSize});
             });

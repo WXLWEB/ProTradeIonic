@@ -1,11 +1,6 @@
-/**
- * Define variables here
- */
-
-$textColor: #ccc;
 //theme
 $white:#fff;
-$box-header-bgcolor: #202020;
+$box-header-bgcolor: #fff;
 $box-header-stress-bgcolor: #383838;
 
 $dropdownmenu-bgcolor: #2F2F2F;
@@ -13,6 +8,7 @@ $dropdownmenu-hover-bgcolor: #383838;
 
 //backgrount color
 $bgcolor-gray:         #F8F8F8;
+$bgcolor-gray2:        #EAEAEA;
 
 //buttoncolor
 $buttonColorGreen:     #16871E;
@@ -64,8 +60,6 @@ $input-bg:             #2c2c2c;
 //## For each of Bootstrap's buttons, define text, background and border color.
 
 $btn-font-weight:                normal !default;
-$font-size-base:                 bold !default;
-
 
 $btn-green-color:                  $font-green;
 $btn-green-bg:                     $white;
@@ -80,6 +74,13 @@ $btn-red-border:                   $font-red;
 $btn-red-hover-bg:                 $font-red;
 $btn-red-hover-color:              $white;
 $btn-red-hover-border:             $font-red;
+
+$btn-blue-color:                    $white;
+$btn-blue-bg:                       #4A90E2;
+$btn-blue-border:                   #4A90E2;
+$btn-blue-hover-bg:                 #4A90E2;
+$btn-blue-hover-color:              $white;
+$btn-blue-hover-border:             #4A90E2;
 
 $line-height-base:           1;
 $border-radius-base:         2;

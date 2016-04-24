@@ -4,14 +4,15 @@
         <h1 class="title">Settings</h1>
     </ion-header-bar>
 
-    <ion-content>
-      <div class="row">
-        <div class="col col-50"></div>
-        <div class="col col-50">
-          <div ng-include="'app/components/orderbook/orderbook.html'"></div>
-        </div>
-      </div>
+    <ion-content scroll="false">
+        <div class="row" style="height:100%;">
+          <div class="col col-50">
 
+          </div>
+          <div class="col col-50 orderbook_box">
+              <div ng-include="'app/components/orderbook/orderbook.html'"></div>
+          </div>
+        </div>
     </ion-content>
 
 </ion-view>

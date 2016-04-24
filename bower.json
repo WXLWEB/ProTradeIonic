@@ -14,7 +14,7 @@
     "charting_library": "ssh://git@github.com/BTCChina/charting_library.git#black-theme",
     "bootstrap": "~3.3.6",
     "angular-websocket": "~1.1.0",
-    "lodash": "~4.8.2"
+    "lodash": "~4.11.2"
   },
   "resolutions": {
     "angular": "~1.4.8"
