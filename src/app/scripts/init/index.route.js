@@ -12,6 +12,11 @@
 
     // Application routing
     $stateProvider
+      .state('intro', {
+        url: '/',
+        templateUrl: 'app/components/intro/intro.html',
+        controller: 'introController'
+      })
       .state('app', {
         url: '/app',
         abstract: true,
@@ -54,29 +59,6 @@
             theme:"default"
         }
       })
-      //.state('app.account', {
-      //  url: '/account',
-      //  cache: true,
-      //  views: {
-      //    'account-tab': {
-      //      templateUrl: 'templates/views/settings.html',
-      //      controller: 'SettingsController'
-      //    }
-      //  }
-      //})
-      // Each tab has its own nav history stack:
-
-      //.state('app.dash', {
-      //  url: '/dash',
-      //  cache: true,
-      //  views: {
-      //    'tab-dash': {
-      //      templateUrl: 'templates/views/tab-dash.html',
-      //      controller: 'DashCtrl'
-      //    }
-      //  }
-      //})
-
       .state('app.chats', {
         url: '/chats',
         cache: true,
@@ -85,6 +67,14 @@
             templateUrl: 'app/templates/views/tab-chats.html',
             controller: 'ChatsCtrl'
           }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
         }
       })
       .state('app.chat-detail', {
@@ -95,6 +85,14 @@
             templateUrl: 'app/templates/views/chat-detail.html',
             controller: 'ChatDetailCtrl'
           }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
         }
       })
 
@@ -106,12 +104,20 @@
             templateUrl: 'app/templates/views/tab-account.html',
             controller: 'AccountCtrl'
           }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
         }
       });
 
 
     // redirects to default route for undefined routes
-    $urlRouterProvider.otherwise('/app/home');
+    $urlRouterProvider.otherwise('/');
   }
 
 })();

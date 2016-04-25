@@ -8,6 +8,10 @@
  */
 angular.module('ProTradeIonic')
   .controller('MainController', function($scope, $rootScope, SocketService) {
+    console.log('MainCtrl');
+    $scope.toIntro = function(){
+      $state.go('intro');
+    }
     //send getTradesRequest
     var getTradesRequest = function (symbol) {
         SocketService.send({"MsgType":"GetTradesRequest","Count":"20", Symbol:symbol});
