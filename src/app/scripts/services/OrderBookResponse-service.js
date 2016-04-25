@@ -8,10 +8,6 @@
  */
 angular.module('ProTradeIonic')
   .factory('OrderBookResponse',function($rootScope, $filter, $log) {
-    var calculateOrderBookCount = function () {
-      $log.debug('OrderBook height:',Math.floor(($('.orderbook_box').height()-40)/28));
-      return Math.floor(($('.orderbook_box').height()-94)/28);
-    };
     return {
         orderbook:  {ask: [], bid: []}, askData: {}, bidData: {}, version: 0,
         processIncoming: function (data,mergeOrderbookArgs,mergeMaketDepthArgs) {
@@ -90,13 +86,13 @@ angular.module('ProTradeIonic')
             that.orderbook.ask = [];
             that.orderbook.bid = [];
             //sort by desc in askArray
-            _.forEach(_.slice(_.sortByOrder(_.toArray(that.askData),'Price',true),0,calculateOrderBookCount()), function (n,key){
+            _.forEach(_.sortByOrder(_.toArray(that.askData),'Price',true), function (n,key){
                 totalAskSize += n.Quantity;
                 that.orderbook.ask.push({Price: n.Price, Quantity :n.Quantity, Total : totalAskSize});
             });
 
             //sort by asc in bidArray
-            _.forEach(_.slice(_.sortByOrder(_.toArray(that.bidData),'Price',false),0,calculateOrderBookCount()), function (n,key){
+            _.forEach(_.sortByOrder(_.toArray(that.bidData),'Price',false), function (n,key){
                 totalBidSize += n.Quantity;
                 that.orderbook.bid.push({Price: n.Price, Quantity :n.Quantity, Total : totalBidSize});
             });
