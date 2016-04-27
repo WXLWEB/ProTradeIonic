@@ -14,8 +14,8 @@ angular.module('ProTradeIonic')
 
   // development
   .constant('API_ENDPOINT', {
-    host: 'http://localhost',
-    port: 3000,
+    host: 'http://dev.btcc.com',
+    port: 300,
     path: '',
     needsAuth: false
   });
@@ -31,4 +31,3 @@ angular.module('ProTradeIonic')
     password: 'foobar'
   });
   */
-

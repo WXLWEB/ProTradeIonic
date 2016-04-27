@@ -1,8 +1,10 @@
   <div class="orderbook" ng-controller="orderBookController">
-    <div class="row header">
-      <div class="col col-50">Price</div>
-      <div class="col">Amount</div>
-      <div class="col">Total</div>
+    <div class="header">
+      <div class="row">
+        <div class="col col-50">Price</div>
+        <div class="col">Amount</div>
+        <div class="col">Total</div>
+      </div>
     </div>
     <div class="deal">
       <div class="sell clearfix">
@@ -19,7 +21,7 @@
       </div>
       <div class="tradeState">
           <div class="row">
-              <div class="col">
+              <div class="col col-60">
                   <span ng-class="{'ion-arrow-up-a':ExecTrade.trades[urlParameter.symbol][0].Side == 1, 'ion-arrow-down-a': ExecTrade.trades[urlParameter.symbol][0].Side == 2}"></span>
                   <span ng-class="{'newdealprice-up': ExecTrade.trades[urlParameter.symbol][0].Side == 1, 'newdealprice-down': ExecTrade.trades[urlParameter.symbol][0].Side == 2}">
                       <span ng-bind="ExecTrade.trades[urlParameter.symbol][0].Price | number:2"></span>

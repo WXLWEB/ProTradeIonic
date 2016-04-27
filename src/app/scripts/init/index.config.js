@@ -6,15 +6,19 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider) {
+  function config($logProvider, $httpProvider, constant) {
     // Enable log
-    $logProvider.debugEnabled(true);
-    //
-    // // Set options third-party lib
-    // toastr.options.timeOut = 3000;
-    // toastr.options.positionClass = 'toast-top-right';
-    // toastr.options.preventDuplicates = true;
-    // toastr.options.progressBar = true;
+    $logProvider.debugEnabled(constant.debug);
+
+    /**
+      * <pre>
+      *   $httpProvider.interceptors.push('tokenAppend');
+      *   We have pushed a factory function named tokenAppend to the interceptors. That means
+      *   before we send a http request, the tokenAppend function will be invoked.Then we can
+      *   append json-web-token to http headers.
+      * <pre>
+    **/
+    $httpProvider.interceptors.push('tokenAppend');
   }
 
 })();

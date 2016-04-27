@@ -14,6 +14,7 @@
     $stateProvider
       .state('intro', {
         url: '/',
+        cache: true,
         templateUrl: 'app/components/intro/intro.html',
         controller: 'introController'
       })
@@ -33,7 +34,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -51,7 +52,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -59,54 +60,35 @@
             theme:"default"
         }
       })
-      .state('app.chats', {
-        url: '/chats',
-        cache: true,
-        views: {
-          'tab-chats': {
-            templateUrl: 'app/templates/views/tab-chats.html',
-            controller: 'ChatsCtrl'
-          }
-        },
-        data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
-            symbol:"XBTCNY",
-            bpi:"BPICNY",
-            quantity: 1,
-            price: 0.1,
-            theme:"default"
-        }
-      })
-      .state('app.chat-detail', {
-        url: '/chats/:chatId',
-        cache: true,
-        views: {
-          'tab-chats': {
-            templateUrl: 'app/templates/views/chat-detail.html',
-            controller: 'ChatDetailCtrl'
-          }
-        },
-        data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
-            symbol:"XBTCNY",
-            bpi:"BPICNY",
-            quantity: 1,
-            price: 0.1,
-            theme:"default"
-        }
-      })
-
       .state('app.account', {
         url: '/account',
         cache: true,
         views: {
-          'tab-account': {
-            templateUrl: 'app/templates/views/tab-account.html',
-            controller: 'AccountCtrl'
+          'account-tab': {
+            templateUrl: 'app/templates/views/account.html',
+            controller: 'AccountController'
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
+      .state('app.login', {
+        url: '/login',
+        cache: true,
+        views: {
+          'account-tab': {
+            templateUrl: 'app/templates/views/login.html',
+            controller: 'loginController'
+          }
+        },
+        data:{
+            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
