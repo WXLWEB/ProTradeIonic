@@ -26,14 +26,47 @@ angular.module('ProTradeIonic')
     };
 
     var calculateCurrentValuation = function(symbol, openPosition) {
-      return (ticker.contractTickerLastPrice[symbol] * Math.abs(openPosition)) || 0;
+      return (Ticker.contractTickerLastPrice[symbol] * Math.abs(openPosition)) || 0;
     };
     return{
       email:'',
       password:'',
       accountKey:'',
+      accountInfo: {CDL: [], C: 0, UFS:0},
+      detailMarginList: {},
+      positiveDetailMarginList: {},
+      totalEquity: 0,
+      totalProfit: 0,
+      currentValuation: 0,
       processIncoming: function(data) {
         var that = this;
+        var updatePositions = function(position) {
+          var lastPrice = Ticker.contractTickerLastPrice[position.S];
+          position.profit = position.OS * (lastPrice - position.AP);
+          position.marketValue = Math.abs(position.OS) * Ticker.contractTickerLastPrice[position.S];
+          position.initialMargin = _.max([position.TBS, position.TSS]) * lastPrice * position.IMF;
+          that.detailMarginList[position.S] = position;
+        };
+        if (data) {
+          //don't update accountInfo with empty data
+          that.accountInfo = data;
+        }
+        _.forEach(_.get(that.accountInfo, 'CDL', []), updatePositions);//update existings positons when Ticker changes
+        _.forEach(that.detailMarginList, function(i) {
+          //update valuation, needs to run everytim new Ticker data comes in.
+          i.currentValuation = calculateCurrentValuation(i.S, 1);
+        });
+        that.positiveDetailMarginList = _.transform(that.detailMarginList, function(result, n, key) {
+          if (n.OS !== 0){
+            result[key] = n;
+            return result;
+          }
+        });
+        that.totalEquity = calculateTotalEquity(that.accountInfo);
+        that.totalProfit = calculateTotalProfit(that.accountInfo);
+        //usable marging = totalEquity - initialMarginRequired or 0
+        that.initialMarginRequired = _.sum(that.accountInfo.CDL, 'initialMargin');
+        that.usableMargin = calculateUsableMargin(that.accountInfo.C, that.totalProfit, that.initialMarginRequired);
       },
       getLoginInfo: function(data) {
         var that = this;

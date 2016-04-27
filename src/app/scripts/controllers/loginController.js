@@ -1,10 +1,12 @@
 'use strict'
 angular.module('ProTradeIonic')
-  .controller('loginController',function($rootScope, $scope, $http, base64, $log, constant, Session, authService) {
+  .controller('loginController',function($rootScope, $scope, $http, base64, $log, constant, Session, authService, $ionicHistory) {
     Session.login();
     $scope.usernameTitle = false;
     $scope.userPasswordTitle = false;
     $scope.showLoginSpinner = false;
+    $scope.showCaptcha = false;
+
     $scope.user =  {
         username :'',
         password :'',
@@ -12,6 +14,11 @@ angular.module('ProTradeIonic')
         pin:''
     };
     $scope.digital = new RegExp("[0-9]*");
+
+    $scope.$on('loginSuccess',function() {
+      $ionicHistory.goBack();
+    })
+
     $scope.login = function (user) {
         $scope.$emit('startLoginCheck');
         $scope.showLoginSpinner = true;
@@ -34,6 +41,7 @@ angular.module('ProTradeIonic')
                 'msie10': /msie 10/.test(navigator.userAgent.toLowerCase())
             })
         }).then(function(success){
+           $scope.$emit('loginSuccess');
            $scope.logined = true;
            $scope.invalidUser = false;
            $scope.userLocked = false;

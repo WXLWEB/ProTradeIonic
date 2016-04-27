@@ -4,10 +4,13 @@
       <form name="formLogin" novalidate>
         <div class="list list-inset">
           <label class="item item-input">
-            <input type="text" placeholder="Email" ng-model="user.username">
+            <input type="text" placeholder="Email" ng-model="user.username" required>
           </label>
           <label class="item item-input">
-            <input type="password" placeholder="Paddword" ng-model="user.password">
+            <input type="password" placeholder="Paddword" ng-model="user.password" required>
+          </label>
+          <label class="item item-input" ng-if="showCaptcha">
+            <input name="captcha" type="text" placeholder="Verification Code" ng-pattern="digital" ng-model="user.captcha" ng-change="captchaChanged()"  ng-minlength="4" ng-maxlength="4" required>
           </label>
         </div>
         <div class="padding">
