@@ -1,17 +1,19 @@
 <ion-view view-title="Login">
   <ion-content scroll="false">
     <div class="content has-header">
-      <div class="list list-inset">
-        <label class="item item-input">
-          <input type="text" placeholder="Email">
-        </label>
-        <label class="item item-input">
-          <input type="password" placeholder="Paddword">
-        </label>
+      <form name="formLogin" novalidate>
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" placeholder="Email" ng-model="user.username">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Paddword" ng-model="user.password">
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-positive" ng-click="login(user)">Login</button>
+        </div>
       </div>
-      <div class="padding">
-        <button class="button button-block button-positive">Login</button>
-      </div>
-    </div>
+    </form>
   </ion-content>
 </ion-view>
