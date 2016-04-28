@@ -34,7 +34,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
+            wsurl: 'wss://pro-ws.btcc.com:2012',
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -52,7 +52,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
+            wsurl: 'wss://pro-ws.btcc.com:2012',
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -70,7 +70,25 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
+      .state('app.account-detail', {
+        url: '/account-detail',
+        cache: true,
+        views: {
+          'account-tab': {
+            templateUrl: 'app/components/accountDetail/account-detail.html',
+            controller: 'AccountController'
+          }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -88,7 +106,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws-staging.btcc.com:2012',
+            wsurl: 'wss://pro-ws.btcc.com:2012',
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
