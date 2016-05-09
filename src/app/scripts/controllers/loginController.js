@@ -6,6 +6,7 @@ angular.module('ProTradeIonic')
     $scope.userPasswordTitle = false;
     $scope.showLoginSpinner = false;
     $scope.showCaptcha = false;
+    $scope.loging = false;
 
     $scope.user =  {
         username :'',
@@ -20,8 +21,11 @@ angular.module('ProTradeIonic')
     })
 
     $scope.login = function (user) {
+      $log.debug('User:',user);
+      $log.debug('Form:',$scope.formLogin);
         $scope.$emit('startLoginCheck');
         $scope.showLoginSpinner = true;
+        $scope.loging = true;
         $http({
           url: constant.apiurl+'/api.php/account/authenticate',
           method: 'POST',
@@ -46,9 +50,11 @@ angular.module('ProTradeIonic')
            $scope.invalidUser = false;
            $scope.userLocked = false;
            $scope.user.captcha = '';
+           $scope.loging = false;
            Session.login();
            $log.debug('login sport success');
         }, function(error) {
+            $scope.loging = false;
             $scope.$emit('cancelLoginCheck');
             $scope.showLoginSpinner = false;
             var data = error.data;

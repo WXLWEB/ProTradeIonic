@@ -1,6 +1,6 @@
 <ion-view view-title="Login">
   <ion-content scroll="false">
-    <div class="content has-header">
+    <div class="content has-header login">
       <form name="formLogin" novalidate>
         <div class="list list-inset">
           <label class="item item-input">
@@ -14,7 +14,9 @@
           </label>
         </div>
         <div class="padding">
-          <button class="button button-block button-positive" ng-click="login(user)">Login</button>
+          <button class="button button-block button-positive" ng-click="login(user)">Login
+            <ion-spinner icon="spiral" class="spinner-light" ng-if="loging"></ion-spinner>
+          </button>
         </div>
       </div>
     </form>
