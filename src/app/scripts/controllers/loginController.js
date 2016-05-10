@@ -46,7 +46,6 @@ angular.module('ProTradeIonic')
                 'msie10': /msie 10/.test(navigator.userAgent.toLowerCase())
             })
         }).then(function(success){
-           $scope.$emit('loginSuccess');
            $scope.logined = true;
            $scope.invalidUser = false;
            $scope.userLocked = false;

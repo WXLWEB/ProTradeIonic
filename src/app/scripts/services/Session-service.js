@@ -42,9 +42,9 @@ angular.module('ProTradeIonic')
         if (checkToken() == true) {
           authService.getUserAccountInfo({})
              .then(function (result) {
-                $rootScope.$broadcast('loginSuccess');
                 $log.debug('getLoginInfo:',result);
                 AccountInfo.getLoginInfo(result.account);
+                $rootScope.$broadcast('loginSuccess');
                 if(result.account){
                   $log.debug("account_permission",result.account.account_permission);
                   if((result.account.account_permission & 16) === 0){
@@ -64,7 +64,6 @@ angular.module('ProTradeIonic')
                   }
                     $log.debug("forwards access allowed");
                     that.hasLogin = true;
-                    $rootScope.$broadcast('loginSuccess');
                     $rootScope.$broadcast('tosAccepted');
                     login_result.resolve(result);
                 }
