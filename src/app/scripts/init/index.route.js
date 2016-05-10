@@ -42,7 +42,25 @@
             theme:"default"
         }
       })
-      .state('app.trade', {
+      .state('app.trade-tab', {
+        url: '/trade-tab',
+        cache: true,
+        views: {
+          'trade-tab': {
+            templateUrl: 'app/templates/views/trade-tab.html',
+            controller: 'SettingsController'
+          }
+        },
+        data:{
+            wsurl: 'wss://pro-ws.btcc.com:2012',
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
+      .state('app.placeorder', {
         url: '/trade',
         cache: true,
         views: {
