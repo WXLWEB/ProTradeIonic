@@ -65,17 +65,17 @@ angular.module('ProTradeIonic')
               // execReport.processIncoming({});
               // accountInfo.processIncoming();
               break;
-            case 'ExecTrade':
-              $log.debug("ExecTrade:", data);
-              ExecTrade.processIncoming(data);
-              break;
-            // case 'GetTradesResponse':
-            //   $log.debug("GetTradesResponse:", data);
-            //   trades.clearTrades();
-            //   _.forEach(data.Trades, function (trade) {
-            //     trades.processIncoming(trade);
-            //   });
+            // case 'ExecTrade':
+            //   $log.debug("ExecTrade:", data);
+            //   ExecTrade.processIncoming(data);
             //   break;
+            case 'GetTradesResponse':
+              $log.debug("GetTradesResponse:", data);
+              ExecTrade.clearTrades();
+              _.forEach(data.Trades, function (trade) {
+                ExecTrade.processIncoming(trade);
+              });
+              break;
             // //case 'GetActiveContractsResponse':
             // //  $log.debug("GetActiveContractsResponse:", data);
             // //  ticker.activeContracts = data.Contracts;
