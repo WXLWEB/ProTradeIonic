@@ -1,10 +1,13 @@
 'use strict'
 angular.module('ProTradeIonic')
-  .controller('loginController',function($rootScope, $scope, $http, base64, $log, constant, Session, authService) {
+  .controller('loginController',function($rootScope, $scope, $http, base64, $log, constant, Session, authService, $ionicHistory, $state) {
     Session.login();
     $scope.usernameTitle = false;
     $scope.userPasswordTitle = false;
     $scope.showLoginSpinner = false;
+    $scope.showCaptcha = false;
+    $scope.loging = false;
+
     $scope.user =  {
         username :'',
         password :'',
@@ -12,9 +15,18 @@ angular.module('ProTradeIonic')
         pin:''
     };
     $scope.digital = new RegExp("[0-9]*");
+
+    $scope.$on('loginSuccess',function() {
+      $state.go('app.account');
+      $ionicHistory.goBack();
+    })
+
     $scope.login = function (user) {
+      $log.debug('User:',user);
+      $log.debug('Form:',$scope.formLogin);
         $scope.$emit('startLoginCheck');
         $scope.showLoginSpinner = true;
+        $scope.loging = true;
         $http({
           url: constant.apiurl+'/api.php/account/authenticate',
           method: 'POST',
@@ -34,13 +46,16 @@ angular.module('ProTradeIonic')
                 'msie10': /msie 10/.test(navigator.userAgent.toLowerCase())
             })
         }).then(function(success){
+           $scope.$emit('loginSuccess');
            $scope.logined = true;
            $scope.invalidUser = false;
            $scope.userLocked = false;
            $scope.user.captcha = '';
+           $scope.loging = false;
            Session.login();
            $log.debug('login sport success');
         }, function(error) {
+            $scope.loging = false;
             $scope.$emit('cancelLoginCheck');
             $scope.showLoginSpinner = false;
             var data = error.data;

@@ -1,17 +1,29 @@
 <ion-view view-title="Login">
   <ion-content scroll="false">
-    <div class="content has-header">
+    <div class="content has-header login">
       <form name="formLogin" novalidate>
         <div class="list list-inset">
           <label class="item item-input">
-            <input type="text" placeholder="Email" ng-model="user.username">
+            <input type="text" placeholder="Email" ng-model="user.username" required>
           </label>
           <label class="item item-input">
-            <input type="password" placeholder="Paddword" ng-model="user.password">
+            <input type="password" placeholder="Paddword" ng-model="user.password" required>
+          </label>
+          <label class="item item-input" ng-if="showCaptcha">
+            <div class="row">
+              <div class="col col-75">
+                <input name="captcha" type="text" placeholder="Verification Code" ng-pattern="digital" ng-model="user.captcha" ng-change="captchaChanged()"  ng-minlength="4" ng-maxlength="4" required>
+              </div>
+              <div class="col">
+                <img ng-src="{{captchaUrl}}" alt="captcha" class="captcha" style="height: 28px; width: 100%;" ng-click="refreshCaptcha()">
+              </div>
+            </div>
           </label>
         </div>
         <div class="padding">
-          <button class="button button-block button-positive" ng-click="login(user)">Login</button>
+          <button class="button button-block button-positive" ng-click="login(user)" ng-disabled="loging">Login
+            <ion-spinner icon="spiral" class="spinner-light" ng-if="loging"></ion-spinner>
+          </button>
         </div>
       </div>
     </form>
