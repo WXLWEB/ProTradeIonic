@@ -21,17 +21,17 @@
       </div>
       <div class="tradeState">
           <div class="row">
-              <div class="col col-60">
+              <div class="col">
                   <span ng-class="{'ion-arrow-up-a':ExecTrade.trades[urlParameter.symbol][0].Side == 1, 'ion-arrow-down-a': ExecTrade.trades[urlParameter.symbol][0].Side == 2}"></span>
                   <span ng-class="{'newdealprice-up': ExecTrade.trades[urlParameter.symbol][0].Side == 1, 'newdealprice-down': ExecTrade.trades[urlParameter.symbol][0].Side == 2}">
                       <span ng-bind="ExecTrade.trades[urlParameter.symbol][0].Price | number:2"></span>
                   </span>
               </div>
-              <div class="col">
+              <!-- <div class="col">
                   <span ng-class="{'points-up': Ticker.quote[urlParameter.symbol].change >= 0, 'points-down': Ticker.quote[urlParameter.symbol].change < 0}">
                       {{Ticker.quote[urlParameter.symbol].change | number:2 }} ({{Ticker.quote[urlParameter.symbol].percent | number:2 }}%)
                   </span>
-              </div>
+              </div> -->
           </div>
       </div>
       <div class="buy">

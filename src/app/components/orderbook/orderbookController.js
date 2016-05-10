@@ -7,7 +7,7 @@ angular.module('ProTradeIonic')
 
     var calculateOrderBookCount = function () {
       $log.debug('OrderBook height:',Math.floor(($('.orderbook_box').height()-75)/30));
-      return Math.floor(($('.orderbook_box').height()- 69)/30);
+      return Math.floor(($('.orderbook_box').height()- 59)/30);
     };
 
     var calculateNullData = function(){

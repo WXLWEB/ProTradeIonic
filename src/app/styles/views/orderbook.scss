@@ -119,7 +119,7 @@
   .tradeState{
     margin: 0 1.8rem;
     padding: 0.2rem 0;
-    height: 4rem;
+    height: 3rem;
     line-height: 1;
     overflow: hidden;
     .row{
@@ -128,14 +128,17 @@
       }
       .col{
         padding: 0;
-        &:first-of-type{text-align: right;}
-        &:last-of-type{text-align: left;padding-left: 0.5rem;}
+        &:first-of-type{text-align: right;
+          span{
+            line-height: 2.6rem;
+          }
+        }
+        &:last-of-type{text-align: left;padding-left: 0.5rem;
+          span{
+            line-height: 2.6rem;
+          }
+        }
       }
-    }
-    .newdeal{
-    }
-    .ion-arrow-down-a,.ion-arrow-up-a{
-      float: left;
     }
     .ion-arrow-up-a,.newdealprice-up{
       color:$font-bright-green-color;
