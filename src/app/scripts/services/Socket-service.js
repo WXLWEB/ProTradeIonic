@@ -8,7 +8,7 @@
  */
 angular.module('ProTradeIonic')
   // use factory for services
-  .factory('SocketService', function($websocket, $log, $rootScope, $interval, getSignature, OrderBookResponse, Ticker, ExecTrade, AccountInfo, Session) {
+  .factory('SocketService', function($websocket, $log, $rootScope, $interval, getSignature, OrderBookResponse, Ticker, ExecTrade, AccountInfo, Session, ExecReport) {
       var ws = false;
       var reconnection;
       $rootScope.groupOrderbookArgs = 0;
@@ -53,16 +53,16 @@ angular.module('ProTradeIonic')
               var is_logged_in = (data.ResultCode === '0') || false;
               Session.setLogin(is_logged_in);
               break;
-            // case 'ExecReport':
-            //   execReport.processIncoming(data);
-            //   break;
+            case 'ExecReport':
+              ExecReport.processIncoming(data);
+              break;
             // case 'ExecTransactions':
             //   orderHistory.processIncoming(data);
             //   break;
             case 'Ticker':
               $log.debug("Ticker:", data);
               Ticker.processIncoming(data);
-              // execReport.processIncoming({});
+              // ExecReport.processIncoming({});
               // accountInfo.processIncoming();
               break;
             // case 'ExecTrade':
