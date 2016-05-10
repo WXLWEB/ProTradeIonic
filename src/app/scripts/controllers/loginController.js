@@ -1,6 +1,6 @@
 'use strict'
 angular.module('ProTradeIonic')
-  .controller('loginController',function($rootScope, $scope, $http, base64, $log, constant, Session, authService, $ionicHistory) {
+  .controller('loginController',function($rootScope, $scope, $http, base64, $log, constant, Session, authService, $ionicHistory, $state) {
     Session.login();
     $scope.usernameTitle = false;
     $scope.userPasswordTitle = false;
@@ -17,6 +17,7 @@ angular.module('ProTradeIonic')
     $scope.digital = new RegExp("[0-9]*");
 
     $scope.$on('loginSuccess',function() {
+      $state.go('app.account');
       $ionicHistory.goBack();
     })
 
