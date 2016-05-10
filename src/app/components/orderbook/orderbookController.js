@@ -6,16 +6,17 @@ angular.module('ProTradeIonic')
     $scope.ExecTrade = ExecTrade;
 
     var calculateOrderBookCount = function () {
-      $log.debug('OrderBook height:',$('.orderbook_box').height());
+      $log.debug('OrderBook height:',Math.floor(($('.orderbook_box').height()-85)/30));
       return Math.floor(($('.orderbook_box').height()-85)/30);
     };
 
     var calculateNullData = function(){
       var rv = {Price:"-",Quantity:"-",Total:"-"};
       var ro = [];
-      for(var i = 0; i<calculateOrderBookCount();i++){
+      for(var i = 0; i < calculateOrderBookCount();i++){
           ro[i] = rv;
       }
+      $log.debug('nullArray:',ro);
       $scope.nullData = ro;
     };
 
@@ -38,6 +39,7 @@ angular.module('ProTradeIonic')
          $log.debug('orderbookHeight:',angular.element('.orderbook_box').height());
          calculateNullData();
          $scope.orderBookCount = calculateOrderBookCount();
+         $log.debug('orderbookCount:',$scope.orderBookCount);
      },
    true);
 

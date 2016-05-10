@@ -38,12 +38,12 @@ angular.module('ProTradeIonic')
           switch (type) {
             case 'Heartbeat':
               break;
-            // case 'ErrorResponse':
-            //   if (data.ResultCode == '0') {
-            //     session.setLogin(false);
-            //   }
-            //   $log.error('errorresponse:', data);
-            //   break;
+            case 'ErrorResponse':
+              if (data.ResultCode == '0') {
+                Session.setLogin(false);
+              }
+              $log.error('errorresponse:', data);
+              break;
             // case 'GetRiskProfilesResponse':
             //   riskProfile.processIncoming(data);
             //   break;

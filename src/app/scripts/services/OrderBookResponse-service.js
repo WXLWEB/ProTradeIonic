@@ -16,8 +16,8 @@ angular.module('ProTradeIonic')
                 //do something when te websocket connection is opened
                 that.version = 0;
             });
-            if(data == null)
-            return;
+            // if(data == null)
+            // return;
             $log.debug("Orderbooks:", data);
             if(data.Type === "F"){
                 that.version = data.Version;

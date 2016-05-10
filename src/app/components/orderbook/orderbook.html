@@ -8,7 +8,7 @@
     </div>
     <div class="deal">
       <div class="sell clearfix">
-        <div class="row" ng-repeat="item in nullData.slice(0,(orderBookCount-OrderBookResponse.orderbook.ask.length) > 0 ? orderBookCount-orderBook.orderbook.ask.length : 0) track by $index">
+        <div class="row" ng-repeat="item in nullData | limitTo: (orderBookCount - OrderBookResponse.orderbook.ask.length>0 ? orderBookCount - OrderBookResponse.orderbook.ask.length : 0) track by $index">
             <div class="col col-50" ng-bind="item.Price">-</div>
             <div class="col" ng-bind="item.Quantity">-</div>
             <div class="col" ng-bind="item.Total">-</div>
@@ -35,15 +35,15 @@
           </div>
       </div>
       <div class="buy">
-          <div class="row" style="cursor: pointer"  ng-repeat="i in OrderBookResponse.orderbook.bid| limitTo: orderBookCount | orderBy: 'Price': true" ng-class="{'overlimit':i.Price < Ticker.quote[urlParameter.symbol].LimitDown}" ng-init="quantityHover = false" ng-mouseover="quantityHover = true" ng-mouseout="quantityHover = false">
+          <div class="row" style="cursor: pointer"  ng-repeat="i in OrderBookResponse.orderbook.bid | limitTo: orderBookCount | orderBy: 'Price': true" ng-class="{'overlimit':i.Price < Ticker.quote[urlParameter.symbol].LimitDown}" ng-init="quantityHover = false" ng-mouseover="quantityHover = true" ng-mouseout="quantityHover = false">
               <div class="col col-50" ng-class="{'hover-disc':quantityHover}" ng-click="getPrice(i.Price);resetPrice()" ng-bind="i.Price| number:2"></div>
               <div class="col" ng-click="getPrice(i.Price);getQuantity(i.Quantity);resetPrice()" ng-bind="i.Quantity"></div>
               <div class="col" ng-click="getPrice(i.Price);getQuantity(i.Total);resetPrice()" ng-bind="i.Total"></div>
           </div>
-          <div class="row" ng-repeat="item in nullData.slice(0,(orderBookCount-OrderBookResponse.orderbook.bid.length) > 0 ? orderBookCount-orderBook.orderbook.bid.length : 0) track by $index">
-              <div class="col col-50" ng-bind="item.Price">-</div>
-              <div class="col" ng-bind="item.Quantity">-</div>
-              <div class="col" ng-bind="item.Total">-</div>
+          <div class="row" ng-repeat="item in nullData | limitTo : (orderBookCount - OrderBookResponse.orderbook.bid.length > 0 ? orderBookCount - OrderBookResponse.orderbook.bid.length : 0) track by $index">
+            <div class="col col-50" ng-bind="item.Price">-</div>
+            <div class="col" ng-bind="item.Quantity">-</div>
+            <div class="col" ng-bind="item.Total">-</div>
           </div>
       </div>
     </div>
