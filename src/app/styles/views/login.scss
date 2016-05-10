@@ -13,4 +13,11 @@
       padding: 0;
     }
   }
+  .error_box{
+    height: 30px;
+    .error{
+      background-color: #e42112;
+      color:$white;
+    }
+  }
 }

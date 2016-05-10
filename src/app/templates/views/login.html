@@ -1,7 +1,28 @@
 <ion-view view-title="Login">
   <ion-content scroll="false">
-    <div class="content has-header login">
+    <div class="content login">
       <form name="formLogin" novalidate>
+        <div class="list list-inset error_box">
+          <div class="item item-divider error invalid-user" ng-show="invalidUser">
+              <spa>Username or password error!</span>
+          </div>
+          <div class="item item-divider error wrong-captcha" ng-show="wrongCaptcha">
+              <span translate="ERROR.CAPTCHA_WRONG">Captcha Error!</span>
+          </div>
+          <div class="item item-divider error need-captcha" ng-show="needCaptcha">
+              <span>Nedd captcha!</span>
+          </div>
+          <div class="item item-divider error locked" ng-show="userLocked">
+              <span translate="ERROR.LOGIN_ACCOUNT_LOCKED_1"></span>
+              <span translate="ERROR.LOGIN_ACCOUNT_LOCKED_2"></span>
+              <span class="close" ng-click="userLocked=false"></span>
+          </div>
+          <div class="item item-divider error locked" ng-show="lockedForever">
+              <i class="i-warning"></i>
+              <span translate="ERROR.LOGIN_LOCKED_FOREVER"></span>
+              <span class="close" ng-click="lockedForever=false"></span>
+          </div>
+        </div>
         <div class="list list-inset">
           <label class="item item-input">
             <input type="text" placeholder="Email" ng-model="user.username" required>
