@@ -1,9 +1,9 @@
 'use strict';
 angular.module('ProTradeIonic')
-  .factory('Session',function($rootScope, $q, $http, $interval, authService, logoutService, ipCookie, AccountInfo, $log) {
+  .factory('Session',function($rootScope, $q, $http, $interval, authService, logoutService, ipCookie, AccountInfo, $log, localStorageService) {
     var checkToken = function () {
       $http.get('/');//first get a new cookie from the server
-      var token = ipCookie("btcchina_jwt");
+      var token = localStorageService.get("btcchina_jwt");
       if (!token) {
         return false;
       }
@@ -23,7 +23,7 @@ angular.module('ProTradeIonic')
               $log.debug('getUserAccountInfo:', result);
               that.hasLogin = false;
               that.email = false;
-              ipCookie.remove("btcchina_jwt", {domain: 'btcc.com'});
+              localStorageService.remove("btcchina_jwt", {domain: 'btcc.com'});
               $rootScope.$broadcast('logoutRequestSuccess');
               execReport.logout();
               accountInfo.logout();
@@ -70,7 +70,7 @@ angular.module('ProTradeIonic')
             },function (error) {
               $log.error("getUserAccountInfo:", error);
               login_result.reject(error);
-              ipCookie.remove("btcchina_jwt", {domain: 'btcc.com'});
+              localStorageService.remove("btcchina_jwt", {domain: 'btcc.com'});
               execReport.logout();
               accountInfo.logout();
             });
