@@ -1,16 +1,16 @@
 'use strict';
 angular.module('ProTradeIonic')
   .factory('Session',function($rootScope, $q, $http, $interval, authService, logoutService, ipCookie, AccountInfo, $log, localStorageService) {
-    var checkToken = function () {
-      var token = localStorageService.get("btcchina_jwt");
-      if (!token) {
-        return false;
-      }
-      return true;
-    };
     return {
       hasLogin: false,
       errorMessage: false,
+      checkToken: function () {
+        var token = localStorageService.get("btcchina_jwt");
+        if (!token) {
+          return false;
+        }
+        return true;
+      },
       setLogin: function (logged_in) {
           this.hasLogin = logged_in;
       },
@@ -33,12 +33,12 @@ angular.module('ProTradeIonic')
       login: function () {
         var that = this;
         var login_result = $q.defer();
-        $log.debug('loginCookie:',checkToken());
-        if(checkToken() == false){
+        $log.debug('loginCookie:',this.checkToken());
+        if(this.checkToken() == false){
           login_result.reject();
           return login_result.promise;
         }
-        if (checkToken() == true) {
+        if (this.checkToken() == true) {
           authService.getUserAccountInfo({})
              .then(function (result) {
                 $log.debug('getLoginInfo:',result);
