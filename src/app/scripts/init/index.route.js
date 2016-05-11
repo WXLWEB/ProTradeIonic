@@ -6,7 +6,7 @@
     .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider) {
+  function routeConfig($stateProvider, $urlRouterProvider, constant) {
     // register $http interceptors, if any. e.g.
     // $httpProvider.interceptors.push('interceptor-name');
 
@@ -34,7 +34,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -52,7 +52,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -70,7 +70,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -88,7 +88,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -106,7 +106,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -124,7 +124,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
