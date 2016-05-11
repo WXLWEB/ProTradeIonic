@@ -1,15 +1,51 @@
 <ion-view  view-title="Trade">
-
     <ion-content scroll="false">
-
       <div class="row" style="height:100%;">
-          <div class="col col-50">
-
+          <div class="col trade_box">
+             <div class="list trade_form">
+               <div class="row">
+                 <ion-radio ng-repeat="item in tradeList"
+                           ng-value="item.value"
+                           ng-model="data.orderType">
+                  {{ item.text }}
+                </ion-radio>
+              </div>
+               <div ng-show="data.orderType == 2">
+                 <label class="item item-input">
+                   <input type="number" placeholder="Price" ng-model="data.price" required>
+                 </label>
+                 <label class="item item-input">
+                   <input type="number" placeholder="Quantity" ng-model="data.quantity" required>
+                 </label>
+                 <button class="button button-block button-positive">
+                   Limit Buy
+                 </button>
+                 <button class="button button-block button-assertive">
+                   Limit Sell
+                 </button>
+               </div>
+               <div ng-show="data.orderType == 1">
+                  <label class="item item-input">
+                    <input type="number" placeholder="Price" ng-model="data.price" required>
+                  </label>
+                  <button class="button button-block button-positive">
+                    Market Buy
+                  </button>
+                  <button class="button button-block button-assertive">
+                    Market Sell
+                  </button>
+               </div>
+             </div>
+             <div class="list list-inset trade_info">
+               <div class="item">
+                 <h3>Useable Margin</h3>
+                 <p>1234</p>
+               </div>
+             </div>
           </div>
-          <div class="col col-50 orderbook_box">
+          <div class="col orderbook_box">
             <div ng-include="'app/components/orderbook/orderbook.html'"></div>
           </div>
         </div>
     </ion-content>
-
 </ion-view>

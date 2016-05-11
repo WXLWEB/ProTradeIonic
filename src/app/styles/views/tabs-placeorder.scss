@@ -1,0 +1,14 @@
+.tabs-placeorder{
+  .tabs{
+    height: 3rem;
+    line-height: 3rem;
+  }
+  .tab-item{
+    &.tab-item-active,
+    &.active,
+    &.activated {
+      color: $theme-color !important;
+      border-bottom: 1px solid $theme-color;
+    }
+  }
+}
