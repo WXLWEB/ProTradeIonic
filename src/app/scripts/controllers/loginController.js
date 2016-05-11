@@ -1,7 +1,6 @@
 'use strict'
 angular.module('ProTradeIonic')
   .controller('loginController',function($rootScope, $scope, $http, base64, $log, constant, Session, authService, $ionicHistory, $state) {
-    Session.login();
     $scope.usernameTitle = false;
     $scope.userPasswordTitle = false;
     $scope.showLoginSpinner = false;

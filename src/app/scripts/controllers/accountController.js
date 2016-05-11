@@ -11,9 +11,8 @@ angular.module('ProTradeIonic')
     $scope.AccountInfo = AccountInfo;
     Session.login().then(function (result) {
       $log.debug("loginSuccess",result);
-        // Session.getLoginInfo(result);
     }, function (error) {
-        $log.debug("loginSuccess",error);
+        $log.debug("Session loginFailed",error);
         $state.go('app.login');
     });
 

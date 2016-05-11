@@ -2,7 +2,6 @@
 angular.module('ProTradeIonic')
   .factory('Session',function($rootScope, $q, $http, $interval, authService, logoutService, ipCookie, AccountInfo, $log, localStorageService) {
     var checkToken = function () {
-      $http.get('/');//first get a new cookie from the server
       var token = localStorageService.get("btcchina_jwt");
       if (!token) {
         return false;

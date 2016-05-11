@@ -21,7 +21,7 @@
     **/
     $httpProvider.interceptors.push('tokenAppend');
     localStorageServiceProvider.setPrefix('myApp')
-    .setStorageType('sessionStorage')
+    .setStorageType('localStorage')
     .setNotify(true, true)
   }
 
