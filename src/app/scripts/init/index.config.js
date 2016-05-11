@@ -6,9 +6,10 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $httpProvider, constant) {
+  function config($logProvider, $httpProvider, constant, $ionicConfigProvider) {
     // Enable log
     $logProvider.debugEnabled(constant.debug);
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
 
     /**
       * <pre>
