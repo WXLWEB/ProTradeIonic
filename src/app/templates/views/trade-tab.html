@@ -1,17 +1,11 @@
-<ion-view  view-title="Trade">
-
-    <!-- <ion-content scroll="false"> -->
-
-      <ion-tabs class="tabs-light tabs-top has-tabs-top tabs-trade">
-        <ion-tab title="Trade" ui-sref="app.pro-trade-tab.trade">
-            <ion-nav-view name="trade-tab"></ion-nav-view>
-        </ion-tab>
-        <ion-tab title="Pending" ui-sref="app.pending">
-            <ion-nav-view name="tab-messages-sent"></ion-nav-view>
-        </ion-tab>
-        <ion-tab title="Position" ui-sref="app.position">
-            <ion-nav-view name="tab-messages-flagged"></ion-nav-view>
-        </ion-tab>
-      </ion-tabs>
-
-</ion-view>
+<ion-tabs class="tabs-light tabs-background-light tabs-top has-tabs-top tabs-trade">
+  <ion-tab title="Trade" ui-sref="app.pro-trade-tab.trade">
+      <ion-nav-view name="trade-tab"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Pending" ui-sref="app.pending">
+      <ion-nav-view name="tab-messages-sent"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Position" ui-sref="app.position">
+      <ion-nav-view name="tab-messages-flagged"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>
