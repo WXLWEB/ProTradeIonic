@@ -42,11 +42,11 @@
             theme:"default"
         }
       })
-      .state('app.trade-tab', {
+      .state('app.pro-trade-tab', {
         url: '/trade-tab',
         cache: true,
         views: {
-          'trade-tab': {
+          'pro-trade-tab': {
             templateUrl: 'app/templates/views/trade-tab.html',
             controller: 'SettingsController'
           }
@@ -60,7 +60,7 @@
             theme:"default"
         }
       })
-      .state('app.placeorder', {
+      .state('app.pro-trade-tab.trade', {
         url: '/trade',
         cache: true,
         views: {

@@ -2,25 +2,16 @@
 
     <!-- <ion-content scroll="false"> -->
 
-      <ion-tabs class="tabs-messages tabs-light tabs-top tabs-icon-top has-tabs-top">
-        <ion-tab title="All" icon-on="ion-ios-filing" icon-off="ion-ios-filing-outline" ui-sref="app.placeorder">
-            <ion-nav-view name="tab-messages-all"></ion-nav-view>
+      <ion-tabs class="tabs-light tabs-top has-tabs-top tabs-trade">
+        <ion-tab title="Trade" ui-sref="app.pro-trade-tab.trade">
+            <ion-nav-view name="trade-tab"></ion-nav-view>
         </ion-tab>
-        <ion-tab title="Sent" icon-on="ion-ios-paperplane" icon-off="ion-ios-paperplane-outline" href="#/app/tab/messages/sent">
+        <ion-tab title="Pending" ui-sref="app.pending">
             <ion-nav-view name="tab-messages-sent"></ion-nav-view>
         </ion-tab>
-        <ion-tab title="Flagged" icon-on="ion-ios-flag" icon-off="ion-ios-flag-outline" href="#/app/tab/messages/flagged">
+        <ion-tab title="Position" ui-sref="app.position">
             <ion-nav-view name="tab-messages-flagged"></ion-nav-view>
         </ion-tab>
       </ion-tabs>
-      <!-- <div class="row" style="height:100%;">
-          <div class="col col-50">
-
-          </div>
-          <div class="col col-50 orderbook_box">
-            <div ng-include="'app/components/orderbook/orderbook.html'"></div>
-          </div>
-        </div>
-    </ion-content> -->
 
 </ion-view>
