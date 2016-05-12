@@ -6,7 +6,7 @@
     .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($stateProvider, $urlRouterProvider) {
+  function routeConfig($stateProvider, $urlRouterProvider, constant) {
     // register $http interceptors, if any. e.g.
     // $httpProvider.interceptors.push('interceptor-name');
 
@@ -34,7 +34,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -42,17 +42,34 @@
             theme:"default"
         }
       })
-      .state('app.trade', {
+      .state('app.pro-trade-tab', {
+        url: '/trade-tab',
+        cache: true,
+        views: {
+          'pro-trade-tab': {
+            templateUrl: 'app/templates/views/trade-tab.html'
+          }
+        },
+        data:{
+            wsurl: constant.cnyWSurl,
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
+      .state('app.pro-trade-tab.trade', {
         url: '/trade',
         cache: true,
         views: {
           'trade-tab': {
             templateUrl: 'app/templates/views/trade.html',
-            controller: 'SettingsController'
+            controller: 'tradeController'
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -70,7 +87,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -88,7 +105,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,
@@ -106,7 +123,7 @@
           }
         },
         data:{
-            wsurl: 'wss://pro-ws.btcc.com:2012',
+            wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
             bpi:"BPICNY",
             quantity: 1,

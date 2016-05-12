@@ -1,12 +1,12 @@
 'use strict';
 angular.module('ProTradeIonic')
-  .factory('tokenAppend',function(ipCookie, $q, $location, $rootScope, constant) {
+  .factory('tokenAppend',function(ipCookie, localStorageService, $q, $location, $rootScope, constant) {
     return {
       request: function (config) {
           //Add JWT header to all API requests
           if(config.method === 'POST'){
-              if (ipCookie("btcchina_jwt")){
-                  config.headers['Json-Web-Token'] = ipCookie("btcchina_jwt");
+              if (localStorageService.get("btcchina_jwt")){
+                  config.headers['Json-Web-Token'] = localStorageService.get("btcchina_jwt");
               }
           }
           return config;
@@ -27,15 +27,15 @@ angular.module('ProTradeIonic')
               if(recToken.indexOf('.') > -1) {
                   if($location.protocol() == "http") {
 
-                      ipCookie("btcchina_jwt", recToken, { expires: 1, domain: constant.domain, path: '/'});
+                      localStorageService.set("btcchina_jwt", recToken, { expires: 1, domain: constant.domain, path: '/'});
                   } else {
-                      ipCookie("btcchina_jwt", recToken, { expires: 1, domain: constant.domain, path: '/', secure: true});
+                      localStorageService.set("btcchina_jwt", recToken, { expires: 1, domain: constant.domain, path: '/', secure: true});
                   }
                   $rootScope.$broadcast('jwtUpdated');
               }
           }
           else {
-            var language = ipCookie("btcchina_lang");
+            var language = localStorageService.set("btcchina_lang");
             if (!language) {
               if (response.headers('Accept-Language')) {
                 var lang = response.headers('Accept-Language');

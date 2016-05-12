@@ -1,0 +1,20 @@
+.tabs-trade{
+  .tabs{
+    height: 3rem;
+    line-height: 3rem;
+  }
+  .has-tabs-top{
+    top:74px;
+  }
+  .scroll-content{
+    margin-bottom: 49px;
+  }
+  .tab-item{
+    &.tab-item-active,
+    &.active,
+    &.activated {
+      color: $theme-color !important;
+      border-bottom: 1px solid $theme-color;
+    }
+  }
+}

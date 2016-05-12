@@ -32,8 +32,6 @@ angular.module('ProTradeIonic')
                     }
                 });
             }else if(data.Type === "I"){
-                // if version = 32767
-                return;
                 if (data.Version >= 32767)
                     that.version = 0;
                 else

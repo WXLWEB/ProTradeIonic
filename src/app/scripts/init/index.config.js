@@ -6,9 +6,10 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $httpProvider, constant) {
+  function config($logProvider, $httpProvider, constant, $ionicConfigProvider, localStorageServiceProvider) {
     // Enable log
     $logProvider.debugEnabled(constant.debug);
+    $ionicConfigProvider.tabs.position('bottom'); // other values: top
 
     /**
       * <pre>
@@ -19,6 +20,9 @@
       * <pre>
     **/
     $httpProvider.interceptors.push('tokenAppend');
+    localStorageServiceProvider.setPrefix('myApp')
+    .setStorageType('localStorage')
+    .setNotify(true, true)
   }
 
 })();
