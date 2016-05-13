@@ -1,6 +1,6 @@
 'use strict';
 angular.module('ProTradeIonic')
- .controller('tradeController',function($rootScope, $scope, Session){
+ .controller('tradeController',function($rootScope, $scope, Session, $log){
    $scope.tradeList = [
       { text: "Limit", value: "2" },
       { text: "Market", value: "1" },
@@ -22,13 +22,13 @@ angular.module('ProTradeIonic')
       Symbol:$rootScope.urlParameter.symbol
     };
 
-    $scope.placeOrder = function (OrderType, form, type) {
+    $scope.placeOrder = function (data, type) {
       // $scope.resetPrice();
       // $scope.resetQuantity();
+      $log.debug("form:",$scope.form);
       angular.forEach($scope.form.$error.required, function(field) {
           field.$setDirty();
       });
-      $log.debug("form:",$scope.form);
       if(!Session.checkToken()){
         Session.logout();
       }

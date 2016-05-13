@@ -5,10 +5,10 @@
     .module('ProTradeIonic')
     .constant('constant', {
         domain: 'btcc.com',
-        cnyWSurl: 'wss://pro-ws.btcc.com:2012',
+        cnyWSurl: 'wss://pro-ws-staging.btcc.com:2012',
         usdWSurl: 'wss://pro-ws.btcc.com:2022',
-        weburl: 'https://pro.btcc.com',
-        apiurl: 'https://api.btcc.com',
+        weburl: 'https://pro-staging.btcc.com',
+        apiurl: 'https://api-staging.btcc.com',
         udfurl: 'https://pro-data-staging.'+ 'btcc.com/data/udf',
         debug: true,
         realLogin: true,

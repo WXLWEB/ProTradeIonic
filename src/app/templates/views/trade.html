@@ -18,10 +18,10 @@
                   <label class="item item-input">
                     <input type="number" placeholder="Quantity" ng-model="data.quantity" required>
                   </label>
-                  <button class="button button-block button-positive">
+                  <button class="button button-block button-positive" ng-click="placeOrder(data,1)">
                     Limit Buy
                   </button>
-                  <button class="button button-block button-assertive">
+                  <button class="button button-block button-assertive" ng-click="placeOrder(data,2)">
                     Limit Sell
                   </button>
                 </div>
