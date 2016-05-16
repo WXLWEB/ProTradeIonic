@@ -2,7 +2,7 @@
     <ion-content scroll="false">
       <div class="row" style="height:100%;">
           <div class="col trade_box">
-            <form name="form" novalidate>
+            <form name="tradeForm" novalidate>
               <div class="list trade_form">
                 <div class="row">
                   <ion-radio ng-repeat="item in tradeList"
@@ -11,23 +11,23 @@
                    {{ item.text }}
                  </ion-radio>
                </div>
-                <div ng-show="data.orderType == 2">
+                <div ng-show="data.orderType == '2'">
                   <label class="item item-input">
-                    <input type="number" placeholder="Price" ng-model="data.price" required>
+                    <input type="number" name="limitPrice" placeholder="Price" ng-model="data.limitPrice" required>
                   </label>
                   <label class="item item-input">
-                    <input type="number" placeholder="Quantity" ng-model="data.quantity" required>
+                    <input type="number" name="limitQuantity" placeholder="Quantity" ng-model="data.limitQuantity" required>
                   </label>
-                  <button class="button button-block button-positive" ng-click="placeOrder(data,1)">
+                  <button class="button button-block button-positive" ng-click="placeOrder(tradeForm,data,1)">
                     Limit Buy
                   </button>
-                  <button class="button button-block button-assertive" ng-click="placeOrder(data,2)">
+                  <button class="button button-block button-assertive" ng-click="placeOrder(tradeForm,data,2)">
                     Limit Sell
                   </button>
                 </div>
-                <div ng-show="data.orderType == 1">
+                <div ng-show="data.orderType == '1'">
                    <label class="item item-input">
-                     <input type="number" placeholder="Price" ng-model="data.price" required>
+                     <input type="number" placeholder="MarketQuantity" ng-model="data.marketQuantity" required>
                    </label>
                    <button class="button button-block button-positive">
                      Market Buy

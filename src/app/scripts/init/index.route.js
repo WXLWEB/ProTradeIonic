@@ -47,7 +47,8 @@
         cache: true,
         views: {
           'pro-trade-tab': {
-            templateUrl: 'app/templates/views/trade-tab.html'
+            templateUrl: 'app/templates/views/trade-tab.html',
+            controller:'tradeTabController'
           }
         },
         data:{

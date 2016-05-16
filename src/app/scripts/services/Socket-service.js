@@ -65,10 +65,10 @@ angular.module('ProTradeIonic')
               // ExecReport.processIncoming({});
               // accountInfo.processIncoming();
               break;
-            // case 'ExecTrade':
-            //   $log.debug("ExecTrade:", data);
-            //   ExecTrade.processIncoming(data);
-            //   break;
+            case 'ExecTrade':
+              $log.debug("ExecTrade:", data);
+              ExecTrade.processIncoming(data);
+              break;
             case 'GetTradesResponse':
               $log.debug("GetTradesResponse:", data);
               ExecTrade.clearTrades();
