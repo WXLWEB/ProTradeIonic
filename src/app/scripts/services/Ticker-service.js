@@ -16,6 +16,8 @@ angular.module('ProTradeIonic')
       activeContracts: [$rootScope.urlParameter.symbol],
       totalOpenInterest: 0,
       totalVolume: 0,
+      proVolume:0,
+      spotVolume:0,
       processIncoming: function (data) {
         var that = this;
         that.contractTickerLastPrice[data.Symbol] = data.Last;
@@ -56,17 +58,16 @@ angular.module('ProTradeIonic')
         //$log.info('this.contractTickerLastPrice', this.contractTickerLastPrice);
 
         that.totalOpenInterest = 0;
-        var proVolume;
-        var spotVolume;
+
         //calculate exchange total open interest and volume
         _.forOwn(that.quote, function (item, symbol) {
           that.totalOpenInterest += item.OpenInterest;
           if(symbol  === $rootScope.urlParameter.symbol ){
-            proVolume = item.Volume24H;
+            that.proVolume = item.Volume24H;
           }else if(symbol  === $rootScope.urlParameter.bpi ){
-            spotVolume = item.Volume;
+            that.spotVolume = item.Volume;
           }
-          that.totalVolume = proVolume+spotVolume;
+          that.totalVolume = that.proVolume+that.spotVolume;
         });
         $rootScope.$broadcast('updateTicker');
       }
