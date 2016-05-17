@@ -42,7 +42,7 @@
             theme:"default"
         }
       })
-      .state('app.chart-detail', {
+      .state('app.pro-chart-detail', {
         url: '/chart-detail',
         cache: true,
         views: {
@@ -54,6 +54,24 @@
         data:{
             wsurl: constant.cnyWSurl,
             symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
+      .state('app.spot-chart-detail', {
+        url: '/chart-detail',
+        cache: true,
+        views: {
+          'home-tab': {
+            templateUrl: 'app/templates/views/chart-detail.html',
+            controller: 'KlineController'
+          }
+        },
+        data:{
+            wsurl: constant.cnyWSurl,
+            symbol:"BTCCNY",
             bpi:"BPICNY",
             quantity: 1,
             price: 0.1,
