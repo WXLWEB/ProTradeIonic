@@ -10,9 +10,20 @@
         <!--<div class="content" ng-bind-html="myHTML">-->
           <!-- -->
         <!--</div>-->
-      <div class="content" ng-controller='KlineController'>
-        <div class="chart" id="chart" style="height:50%; width: 100%;"></div>
-      </div>
+
+        <div class="list">
+          <a class="item item-icon-left item-icon-right" ui-sref="app.chart-detail">
+            <i class="icon ion-stats-bars"></i>
+            <h2>BTCC Pro</h2>
+            <p>Volume:</p>
+          </a>
+          <a class="item item-icon-left item-icon-right" ui-sref="app.chart-detail">
+            <i class="icon ion-stats-bars"></i>
+            <h2>BTCC Spot</h2>
+            <p>Volume:</p>
+          </a>
+        </div>
+
 
 
     </ion-content>

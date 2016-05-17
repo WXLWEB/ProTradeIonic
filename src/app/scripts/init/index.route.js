@@ -42,6 +42,24 @@
             theme:"default"
         }
       })
+      .state('app.chart-detail', {
+        url: '/chart-detail',
+        cache: true,
+        views: {
+          'home-tab': {
+            templateUrl: 'app/templates/views/chart-detail.html',
+            controller: 'KlineController'
+          }
+        },
+        data:{
+            wsurl: constant.cnyWSurl,
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
       .state('app.pro-trade-tab', {
         url: '/trade-tab',
         cache: true,
@@ -101,7 +119,7 @@
         cache: true,
         views: {
           'account-tab': {
-            templateUrl: 'app/components/accountDetail/account-detail.html',
+            templateUrl: 'app/templates/views/account-detail.html',
             controller: 'AccountController'
           }
         },
@@ -118,7 +136,7 @@
         url: '/login',
         cache: true,
         views: {
-          'account-tab': {
+          'tab-content': {
             templateUrl: 'app/templates/views/login.html',
             controller: 'loginController'
           }
