@@ -7,11 +7,20 @@
  * # MainController
  */
 angular.module('ProTradeIonic')
-  .controller('MainController', function($scope, $rootScope, SocketService) {
+  .controller('MainController', function($scope, $rootScope, SocketService, Session, $state) {
 
+    $scope.Session = Session;
+    
     $scope.toIntro = function(){
       $state.go('intro');
     }
+    //
+    // if(!Session.hasLogin){
+    //   $state.go('app.login-trade');
+    // }
+    // if(Session.hasLogin){
+    //   $state.go('app.pro-trade-tab.trade');
+    // }
 
     //send getTradesRequest
     var getTradesRequest = function (symbol) {

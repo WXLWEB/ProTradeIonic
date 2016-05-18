@@ -10,9 +10,9 @@ angular.module('ProTradeIonic')
   .controller('AccountController', function($rootScope, $scope, SocketService, $state, Session, AccountInfo, $log) {
     $scope.AccountInfo = AccountInfo;
 
-    if(!Session.hasLogin){
-      $state.go('app.login-account');
-    }
+    // if(!Session.hasLogin){
+    //   $state.go('app.login-account');
+    // }
 
     $rootScope.$on('loginSuccess',function() {
       $scope.loginRequest();

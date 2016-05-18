@@ -9,7 +9,7 @@
 angular.module('ProTradeIonic')
   // use factory for services
   .factory('Ticker',function ($log, $rootScope) {
-    var ticker = {
+    return {
       quote: {},
       contractTickerLastPrice: {},
       preLastPrice: {value: 0, sub: 0},
@@ -71,6 +71,5 @@ angular.module('ProTradeIonic')
         });
         $rootScope.$broadcast('updateTicker');
       }
-    };
-    return ticker;
+    }
 });

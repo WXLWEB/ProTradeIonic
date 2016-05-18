@@ -118,16 +118,16 @@ angular.module('ProTradeIonic')
       angular.forEach(form.$error.required, function(field) {
           field.$setDirty();
       });
-      if(!Session.checkToken()){
-        Session.logout();
-        //go to login page
-        $state.go('app.login');
-        return;
-      }
-      if(!Session.hasLogin){
-        $log.debug('hasLogin:',Session.hasLogin);
-        $state.go('app.login');
-      }
+      // if(!Session.checkToken()){
+      //   Session.logout();
+      //   //go to login page
+      //   $state.go('app.login');
+      //   return;
+      // }
+      // if(!Session.hasLogin){
+      //   $log.debug('hasLogin:',Session.hasLogin);
+      //   $state.go('app.login');
+      // }
       if (AccountInfo.IL) {
         $scope.$emit('orderUpdated', {Status: 'FAILED', Symbol: 'Account in Liquidation'});
         return;
