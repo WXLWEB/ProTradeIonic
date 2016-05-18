@@ -1,11 +1,11 @@
 'use strict';
 angular.module('ProTradeIonic')
-  .factory('Session',function($rootScope, $q, $http, $interval, authService, logoutService, ipCookie, AccountInfo, $log, localStorageService) {
+  .factory('Session',function($rootScope, $q, $http, $interval, authService, logoutService, ipCookie, AccountInfo, $log, localStorageService, constant) {
     return {
       hasLogin: false,
       errorMessage: false,
       checkToken: function () {
-        var token = localStorageService.get("btcchina_jwt");
+        var token = localStorageService.get("btcchina_jwt",{domain: constant.domain});
         if (!token) {
           return false;
         }
@@ -18,15 +18,15 @@ angular.module('ProTradeIonic')
         var that = this;
         var login_out = $q.defer();
         logoutService.logout({})
-            .success(function(result){
+            .then(function(result){
               $log.debug('getUserAccountInfo:', result);
               that.hasLogin = false;
               that.email = false;
-              localStorageService.remove("btcchina_jwt", {domain: 'btcc.com'});
+              localStorageService.remove("btcchina_jwt");
               $rootScope.$broadcast('logoutRequestSuccess');
-              execReport.logout();
-              accountInfo.logout();
-            }).error(function(error){
+              // execReport.logout();
+              AccountInfo.logout();
+            },function(error){
               login_out.reject(error);
             });
       },
@@ -69,7 +69,7 @@ angular.module('ProTradeIonic')
             },function (error) {
               $log.error("getUserAccountInfo:", error);
               login_result.reject(error);
-              localStorageService.remove("btcchina_jwt", {domain: 'btcc.com'});
+              localStorageService.remove("btcchina_jwt", {domain: constant.domain});
               execReport.logout();
               accountInfo.logout();
             });

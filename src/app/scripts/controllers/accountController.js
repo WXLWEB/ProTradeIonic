@@ -9,13 +9,10 @@
 angular.module('ProTradeIonic')
   .controller('AccountController', function($rootScope, $scope, SocketService, $state, Session, AccountInfo, $log) {
     $scope.AccountInfo = AccountInfo;
-    Session.login().then(function (result) {
-      $log.debug("loginSuccess",result);
-    }, function (error) {
-        $log.debug("Session loginFailed",error);
-        $state.go('app.login');
-    });
 
+    if(!Session.hasLogin){
+      $state.go('app.login-account');
+    }
 
     $rootScope.$on('loginSuccess',function() {
       $scope.loginRequest();
@@ -38,6 +35,11 @@ angular.module('ProTradeIonic')
         function (error) {
             //$state.go('trading');
         });
+    }
+
+    $scope.signOut = function() {
+      $state.go('app.login-account');
+      Session.logout();
     }
 
     // $scope.toLoginPage = function() {

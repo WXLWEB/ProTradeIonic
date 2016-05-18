@@ -75,6 +75,20 @@ angular.module('ProTradeIonic')
         that.password = data.account_key;
         //$rootScope.email = data.account.email;
         that.accountKey = new jsSHA(data.account_key, "TEXT").getHash("SHA-1", "B64");
+      },
+      logout: function () {
+        var that =this;
+        that.accountKey = '';
+        that.email = '',
+        that.password = '',
+        that.accountInfo = {CDL: [], C: 0, UFS:0};
+        that.detailMarginList = {};
+        that.initialMarginRequired = 0;
+        that.usableMargin = 0;
+        that.positiveDetailMarginList = {};
+        that.totalEquity = 0;
+        that.totalProfit = 0;
+        that.currentValuation= 0;
       }
     }
   });

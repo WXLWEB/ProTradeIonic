@@ -1,12 +1,6 @@
 'use strict';
 angular.module('ProTradeIonic')
  .controller('tradeController',function($rootScope, $scope, Session, $log, $state, Ticker, TradeList, tradeService, AccountInfo, ipCookie, localStorageService){
-   Session.login().then(function (result) {
-     $log.debug("loginSuccess",result);
-   }, function (error) {
-       $log.debug("Session loginFailed",error);
-       $state.go('app.login');
-   });
    $scope.tradeList = [
       { text: "Limit", value: "2" },
       { text: "Market", value: "1" },
