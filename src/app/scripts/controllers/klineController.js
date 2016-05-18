@@ -7,7 +7,7 @@
  * # HomeController
  */
 angular.module('ProTradeIonic')
-  .controller('KlineController', function($scope, ExampleService) {
+  .controller('KlineController', function($rootScope, $scope, ExampleService) {
 
     $scope.myHTML = null;
 
@@ -27,7 +27,7 @@ angular.module('ProTradeIonic')
         width: '100%',
         height: '100%',
         fullscreen: false,
-        symbol: "XBTCNY",
+        symbol: $rootScope.urlParameter.symbol,
         interval: '60',
         timezone: "Asia/Shanghai",
         container_id: "chart",

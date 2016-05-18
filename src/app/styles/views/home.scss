@@ -1,9 +1,12 @@
-.header {
-
+#chart{
+  height: 300px;
+   width: 100%;
+   border: 1px solid #eee;
 }
-.scroll{
-  height: 100%;
-}
-.content,.chart{
-  height: 100%;
+.market-list{
+  .item{
+    margin:5px 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }

@@ -7,8 +7,9 @@
  * # HomeController
  */
 angular.module('ProTradeIonic')
-  .controller('HomeController', function($scope, SocketService) {
-
+  .controller('HomeController', function($scope, SocketService, Ticker, ExecTrade) {
+    $scope.Ticker = Ticker;
+    $scope.ExecTrade = ExecTrade;
     $scope.myHTML = null;
 
     // just an example...
