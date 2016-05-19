@@ -10,7 +10,9 @@
     // Enable log
     $logProvider.debugEnabled(constant.debug);
     $ionicConfigProvider.tabs.position('bottom'); // other values: top
-
+    $ionicConfigProvider.tabs.style('standard');
+    $ionicConfigProvider.form.checkbox('circle');
+    $ionicConfigProvider.views.transition('ios');
     /**
       * <pre>
       *   $httpProvider.interceptors.push('tokenAppend');
