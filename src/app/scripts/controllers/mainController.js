@@ -7,20 +7,35 @@
  * # MainController
  */
 angular.module('ProTradeIonic')
-  .controller('MainController', function($scope, $rootScope, SocketService, Session, $state) {
+  .controller('MainController', function($scope, $rootScope, SocketService, Session, $state, AccountInfo) {
 
     $scope.Session = Session;
-    
+    Session.login();
+
     $scope.toIntro = function(){
       $state.go('intro');
     }
-    //
-    // if(!Session.hasLogin){
-    //   $state.go('app.login-trade');
-    // }
-    // if(Session.hasLogin){
-    //   $state.go('app.pro-trade-tab.trade');
-    // }
+
+    $rootScope.$on('loginSuccess',function() {
+      $scope.loginRequest();
+      $state.go('app.pro-trade-tab');
+    })
+
+    $scope.loginRequest = function(){
+      var credentials = {"MsgType":"LoginRequest",
+        "Email": AccountInfo.email,
+        "Account": AccountInfo.account,
+        "Password": AccountInfo.password
+      };
+      SocketService.send(credentials).then(//successCallback
+        function (success) {
+            $scope.$broadcast('loginRequestSuccess');
+        },//errorCallback
+        function (error) {
+            //$state.go('trading');
+        });
+    }
+
 
     //send getTradesRequest
     var getTradesRequest = function (symbol) {

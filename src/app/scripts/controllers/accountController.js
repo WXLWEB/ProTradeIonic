@@ -13,29 +13,9 @@ angular.module('ProTradeIonic')
     // if(!Session.hasLogin){
     //   $state.go('app.login-account');
     // }
-
-    $rootScope.$on('loginSuccess',function() {
-      $scope.loginRequest();
-    })
-
-    $scope.loginRequest = function(){
-      var credentials = {"MsgType":"LoginRequest",
-        "Email": AccountInfo.email,
-        "Account": AccountInfo.account,
-        "Password": AccountInfo.password
-      };
-     //resend the login request when the ws re-opens
-      SocketService.send(credentials).then(//successCallback
-        function (success) {
-            //socket.send({"MsgType":"GetRiskProfilesRequest"})
-            // sendGetOrdersRequest();//make the OrederRequest
-            //$state.go('trading');
-            $scope.$broadcast('loginRequestSuccess');
-        },//errorCallback
-        function (error) {
-            //$state.go('trading');
-        });
-    }
+    // $rootScope.$on('loginSuccess',function() {
+    //     $state.go('app.account');
+    // })
 
     $scope.signOut = function() {
       $state.go('app.login-account');
