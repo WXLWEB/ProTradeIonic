@@ -63,7 +63,7 @@ angular.module('ProTradeIonic')
               $log.debug("Ticker:", data);
               Ticker.processIncoming(data);
               // ExecReport.processIncoming({});
-              // accountInfo.processIncoming();
+              // AccountInfo.processIncoming(data);
               break;
             case 'ExecTrade':
               $log.debug("ExecTrade:", data);
