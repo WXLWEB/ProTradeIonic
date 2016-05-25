@@ -1,0 +1,13 @@
+<ion-tabs class="tabs-icon-top tabs-positive" ng-class="{'tabs-item-hide': $root.hideTabs}"  animation="slide-left-right">
+  <ion-tab title="Market Data" icon="ion-stats-bars" ui-sref="app.tabs.home">
+    <ion-nav-view name="home-tab"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Pro Exchange" icon="ion-ios-information" ui-sref="app.tabs.pro-trade-tab">
+    <ion-nav-view name="pro-trade-tab"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Account" icon="ion-person" ui-sref="app.tabs.account" ui-sref-opts="{reload: true}">
+    <ion-nav-view name="account-tab"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

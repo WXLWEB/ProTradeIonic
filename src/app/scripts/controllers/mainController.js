@@ -18,7 +18,6 @@ angular.module('ProTradeIonic')
 
     $rootScope.$on('loginSuccess',function() {
       $scope.loginRequest();
-      $state.go('app.pro-trade-tab');
     })
 
     $scope.loginRequest = function(){
