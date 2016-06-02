@@ -1,0 +1,13 @@
+<ion-view  view-title="PendingOrders">
+    <ion-content scroll="false">
+      <div class="card">
+        <div class="item item-text-wrap">
+          <div class="row" ng-repeat="data in ExecReport.executions | toArray | orderby:'Timestamp'">
+            <div class="col">
+              <span>Symbol:</span><span ng-bind="data.Timestamp"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+</ion-view>

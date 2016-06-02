@@ -132,6 +132,24 @@
             theme:"default"
         }
       })
+      .state('app.tabs.pro-trade-tab.pending-orders', {
+        url: '/pending-orders',
+        cache: true,
+        views: {
+          'pending-tab': {
+            templateUrl: 'app/templates/views/pending-orders.html',
+            controller: 'pendingOrdersController'
+          }
+        },
+        data:{
+            wsurl: constant.cnyWSurl,
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
       .state('app.tabs.account', {
         url: '/account',
         cache: true,
