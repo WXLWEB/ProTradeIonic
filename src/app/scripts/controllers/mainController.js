@@ -7,7 +7,7 @@
  * # MainController
  */
 angular.module('ProTradeIonic')
-  .controller('MainController', function($scope, $rootScope, SocketService, Session, $state, AccountInfo) {
+  .controller('MainController', function($scope, $rootScope, SocketService, Session, $state, AccountInfo, $log) {
 
     $scope.Session = Session;
     Session.login();
@@ -16,9 +16,24 @@ angular.module('ProTradeIonic')
       $state.go('intro');
     }
 
+    // $scope.checkLogin = function(tab) {
+    //   $log.debug('LoginCheck:',Session.hasLogin);
+    //   if(Session.hasLogin){
+    //     if(tab == 'trade'){
+    //       $state.go('app.pro-trade-tab.trade');
+    //       return;
+    //     }
+    //     if(tab == 'account'){
+    //       $state.go('app.account');
+    //       return;
+    //     }
+    //   }else{
+    //     $state.go('app.login-'+tab);
+    //   }
+    // }
+
     $rootScope.$on('loginSuccess',function() {
       $scope.loginRequest();
-      $state.go('app.pro-trade-tab');
     })
 
     $scope.loginRequest = function(){

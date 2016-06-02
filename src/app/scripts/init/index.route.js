@@ -150,26 +150,8 @@
             theme:"default"
         }
       })
-      .state('app.login-trade', {
-        url: '/login-trade',
-        cache: true,
-        views: {
-          'pro-trade-tab': {
-            templateUrl: 'app/templates/views/login.html',
-            controller: 'loginController'
-          }
-        },
-        data:{
-            wsurl: constant.cnyWSurl,
-            symbol:"XBTCNY",
-            bpi:"BPICNY",
-            quantity: 1,
-            price: 0.1,
-            theme:"default"
-        }
-      })
-      .state('app.login-account', {
-        url: '/login-account',
+      .state('app.login', {
+        url: '/login',
         cache: true,
         views: {
           'account-tab': {

@@ -18,7 +18,7 @@ angular.module('ProTradeIonic')
     // })
 
     $scope.signOut = function() {
-      $state.go('app.login-account');
+      $state.go('app.login');
       Session.logout();
     }
 
