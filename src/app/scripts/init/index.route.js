@@ -24,7 +24,25 @@
         templateUrl: 'app/templates/main.html',
         controller: 'MainController'
       })
-      .state('app.home', {
+      .state('app.tabs', {
+        url: '/tabs',
+        cache: true,
+        views: {
+          'menuContent': {
+            templateUrl: 'app/templates/views/tabs.html',
+            controller: 'tabsController'
+          }
+        },
+        data:{
+            wsurl: constant.cnyWSurl,
+            symbol:"XBTCNY",
+            bpi:"BPICNY",
+            quantity: 1,
+            price: 0.1,
+            theme:"default"
+        }
+      })
+      .state('app.tabs.home', {
         url: '/home',
         cache: true,
         views: {
@@ -42,7 +60,7 @@
             theme:"default"
         }
       })
-      .state('app.pro-chart-detail', {
+      .state('app.tabs.pro-chart-detail', {
         url: '/chart-detail',
         cache: true,
         views: {
@@ -60,7 +78,7 @@
             theme:"default"
         }
       })
-      .state('app.spot-chart-detail', {
+      .state('app.tabs.spot-chart-detail', {
         url: '/chart-detail',
         cache: true,
         views: {
@@ -78,7 +96,7 @@
             theme:"default"
         }
       })
-      .state('app.pro-trade-tab', {
+      .state('app.tabs.pro-trade-tab', {
         url: '/trade-tab',
         cache: true,
         views: {
@@ -96,7 +114,7 @@
             theme:"default"
         }
       })
-      .state('app.pro-trade-tab.trade', {
+      .state('app.tabs.pro-trade-tab.trade', {
         url: '/trade',
         cache: true,
         views: {
@@ -114,7 +132,7 @@
             theme:"default"
         }
       })
-      .state('app.account', {
+      .state('app.tabs.account', {
         url: '/account',
         cache: true,
         views: {
@@ -132,7 +150,7 @@
             theme:"default"
         }
       })
-      .state('app.account-detail', {
+      .state('app.tabs.account-detail', {
         url: '/account-detail',
         cache: true,
         views: {
@@ -153,8 +171,8 @@
       .state('app.login', {
         url: '/login',
         cache: true,
-        views: {
-          'account-tab': {
+        views:{
+          'menuContent':{
             templateUrl: 'app/templates/views/login.html',
             controller: 'loginController'
           }

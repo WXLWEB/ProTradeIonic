@@ -10,20 +10,7 @@
        <button menu-toggle="right" class="button button-icon icon ion-gear-a"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-tabs class="tabs-icon-top tabs-positive" ng-class="{'tabs-item-hide': $root.hideTabs}"  animation="slide-left-right">
-      {{Session.hasLogin}}
-      <ion-tab title="Market Data" icon="ion-stats-bars" ui-sref="app.home">
-        <ion-nav-view name="home-tab"></ion-nav-view>
-      </ion-tab>
-
-      <ion-tab title="Pro Exchange" icon="ion-ios-information" ui-sref="app.pro-trade-tab" ui-sref-opts="{reload: true}" ng-href="#/app/{{Session.hasLogin ? 'trade-tab':'login'}}">
-        <ion-nav-view name="pro-trade-tab"></ion-nav-view>
-      </ion-tab>
-
-      <ion-tab title="Account" icon="ion-person" ui-sref="app.account" ui-sref-opts="{reload: true}" ng-href="#/app/{{Session.hasLogin ? 'account':'login'}}">
-        <ion-nav-view name="account-tab"></ion-nav-view>
-      </ion-tab>
-    </ion-tabs>
+    <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
@@ -32,9 +19,8 @@
     </ion-header-bar>
     <ion-content >
       <ion-list>
-        <ion-item menu-close href="#/app/login">Login</ion-item>
-        <ion-item menu-close href="#/app/trade">Trade</ion-item>
-		    <ion-item menu-close href="#" ng-click="logout()"> Logout </ion-item>
+        <ion-item menu-close ui-sref="app.tabs.home">Home</ion-item>
+        <ion-item menu-close ng-hide="Session.hasLogin" ui-sref="app.login">Login</ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

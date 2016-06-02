@@ -3,7 +3,7 @@ angular.module('ProTradeIonic')
   .controller('introController',function($scope, $state, $ionicSlideBoxDelegate) {
     // Called to navigate to the main app
     $scope.startApp = function() {
-      $state.go('app.home');
+      $state.go('app.tabs.home');
     };
     $scope.next = function() {
       $ionicSlideBoxDelegate.next();

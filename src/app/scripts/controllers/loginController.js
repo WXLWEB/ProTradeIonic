@@ -16,8 +16,8 @@ angular.module('ProTradeIonic')
     $scope.digital = new RegExp("[0-9]*");
 
     $scope.$on('loginSuccess',function() {
-      // $state.go('app.pro-trade-tab');
-      // $ionicHistory.goBack();
+      $state.go('app.tabs.home');
+      $ionicHistory.goBack();
     })
 
     $scope.login = function (user) {

@@ -40,8 +40,12 @@
             </form>
             <div class="list list-inset trade_info">
                <div class="item">
-                 <h3>Useable Margin</h3>
-                 <p>1234</p>
+                 <h3>Useable Margin:</h3>
+                 <p>{{(AccountInfo.initialMarginRequired) | number:2 | emptyCurrency}}</p>
+                 <h3>Max Qty:</h3>
+                 <p>
+                   {{AccountInfo.maxQty | number:0 | emptyCurrency}}
+                 </p>
                </div>
              </div>
           </div>

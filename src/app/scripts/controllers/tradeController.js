@@ -1,6 +1,8 @@
 'use strict';
 angular.module('ProTradeIonic')
  .controller('tradeController',function($rootScope, $scope, Session, $log, $state, Ticker, TradeList, tradeService, AccountInfo, ipCookie, localStorageService){
+   $scope.AccountInfo = AccountInfo;
+   $scope.Ticker = Ticker;
    $scope.tradeList = [
       { text: "Limit", value: "2" },
       { text: "Market", value: "1" },

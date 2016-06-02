@@ -7,7 +7,7 @@
  * # ProTradeIonic
  */
 angular.module('ProTradeIonic')
-  .factory('AccountInfo',function(Ticker) {
+  .factory('AccountInfo',function($log,$rootScope,Ticker) {
     var calculateTotalProfit = function(accountInfo) {
         var totalProfit = _.sum(accountInfo.CDL, 'profit');
         return totalProfit;
@@ -28,6 +28,10 @@ angular.module('ProTradeIonic')
     var calculateCurrentValuation = function(symbol, openPosition) {
       return (Ticker.contractTickerLastPrice[symbol] * Math.abs(openPosition)) || 0;
     };
+
+    var calculateMaxQty = function(symbol, usableMargin, IMF) {
+      return usableMargin < 0 ? 0 : Math.floor(usableMargin / (Ticker.quote[symbol].Last * IMF))
+    }
     return{
       email:'',
       password:'',
@@ -54,7 +58,7 @@ angular.module('ProTradeIonic')
         _.forEach(_.get(that.accountInfo, 'CDL', []), updatePositions);//update existings positons when Ticker changes
         _.forEach(that.detailMarginList, function(i) {
           //update valuation, needs to run everytim new Ticker data comes in.
-          i.currentValuation = calculateCurrentValuation(i.S, 1);
+          i.currentValuation = calculateCurrentValuation(i.S, 1, that.detailMarginList);
         });
         that.positiveDetailMarginList = _.transform(that.detailMarginList, function(result, n, key) {
           if (n.OS !== 0){
@@ -67,6 +71,7 @@ angular.module('ProTradeIonic')
         //usable marging = totalEquity - initialMarginRequired or 0
         that.initialMarginRequired = _.sum(that.accountInfo.CDL, 'initialMargin');
         that.usableMargin = calculateUsableMargin(that.accountInfo.C, that.totalProfit, that.initialMarginRequired);
+        that.maxQty = calculateMaxQty($rootScope.urlParameter.symbol, that.usableMargin, that.detailMarginList[$rootScope.urlParameter.symbol].IMF);
       },
       getLoginInfo: function(data) {
         var that = this;
@@ -81,6 +86,7 @@ angular.module('ProTradeIonic')
         that.accountKey = '';
         that.email = '',
         that.password = '',
+        that.maxQty = '',
         that.accountInfo = {CDL: [], C: 0, UFS:0};
         that.detailMarginList = {};
         that.initialMarginRequired = 0;
